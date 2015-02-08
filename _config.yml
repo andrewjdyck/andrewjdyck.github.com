@@ -1,5 +1,5 @@
-url: http://wp.andrewdyck.com/cms
+url: http://www.andrewdyck.com
 name: AndrewDyck.com
-description: >
-  My thoughts on computing, economics and
-  life
+description: My thoughts on computing, economics and life
+highlighter: pygments
+
