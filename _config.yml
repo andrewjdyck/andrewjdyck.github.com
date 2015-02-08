@@ -1,5 +1,24 @@
+#Setup
 url: http://www.andrewdyck.com
 name: AndrewDyck.com
-description: My thoughts on computing, economics and life
+description: My thoughts on scientific computing, economics and life
+author: 
+  name: Andrew J. Dyck
+  url: http://www.andrewdyck.com
+  email: info@andrewdyck.com
+baseurl: /
+
+# Other stuff
 highlighter: pygments
+pages_list:
+  Blog: '/blog'
+  Archive: '/archive'
+  Feed: '/feed.xml'
+version: 1.0
+github:
+  repo: https://github.com/andrewjdyck/andrewjdyck.github.com
+
+# Permalinks
+permalink: pretty
+relative_permalinks: true
 
