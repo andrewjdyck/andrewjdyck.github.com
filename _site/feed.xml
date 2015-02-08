@@ -1,0 +1,2016 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title></title>
+ <link href="http://www.andrewdyck.com/atom.xml" rel="self"/>
+ <link href="http://www.andrewdyck.com/"/>
+ <updated>2015-02-08T14:22:50-06:00</updated>
+ <id>http://www.andrewdyck.com</id>
+ <author>
+   <name>Andrew J. Dyck</name>
+   <email>info@andrewdyck.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Compute the product of a column of data using SQL</title>
+   <link href="http://www.andrewdyck.com//compute-the-product-of-a-column-of-data-using-sql/"/>
+   <updated>2014-01-12T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/compute-the-product-of-a-column-of-data-using-sql</id>
+   <content type="html">&lt;p&gt;In SQL, summing a column of numbers is relatively trivial, and the size of the dataset isn’t important. For example:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: sql; title: ; notranslate&quot; title=&quot;&quot;&gt;SELECT 
+  SUM(X) as SUMOFX
+FROM data_table;
+&lt;/pre&gt;
+
+&lt;p&gt;Mathematically, what we are doing here is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;SUMOFX = \sum\_{i=1}^n X\_i&lt;/script&gt;
+
+&lt;p&gt;Now, if we find ourselves in the unfortunate situation to compute this:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;PRODUCTOFX = \prod\_{i=1}^n X\_i&lt;/script&gt;
+
+&lt;p&gt;In this case, it won’t be as easy to use the SQL code above, but we can use &lt;a href=&quot;http://en.wikipedia.org/wiki/E_(mathematical_constant)&quot;&gt;Euler’s number&lt;/a&gt; and a property of the &lt;a href=&quot;http://en.wikipedia.org/wiki/Natural_logarithm&quot;&gt;natural logarithm&lt;/a&gt; to also make this task a trivial one. The equation that we are going to exploit is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;ln(x*y) = ln(x) + ln(y)&lt;/script&gt;
+
+&lt;p&gt;which gives us a functional relationship between the product and sum of two numbers. This allows us to change our above SQL code to:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: sql; title: ; notranslate&quot; title=&quot;&quot;&gt;SELECT
+  exp(sum(log(X))) as PRODUCTOFX
+FROM data_table;
+&lt;/pre&gt;
+
+&lt;p&gt;It’s probably really rare for this to be useful in any sort of production environment, however, I hope that this trick could save someone the hassle of having to code up a custom solution to compute a product for data that’s already in a relational database.&lt;/p&gt;
+
+&lt;p&gt;Good luck!&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A new year&#8217;s post</title>
+   <link href="http://www.andrewdyck.com//a-new-years-post/"/>
+   <updated>2014-01-08T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/a-new-years-post</id>
+   <content type="html">&lt;p&gt;I don’t think I’ve ever done this on the blog before, but &lt;a href=&quot;http://edenrohatensky.com/2014-im-coming-for-you/&quot;&gt;a post by an data-minded colleague of mine&lt;/a&gt; has me inspired to put down, for all the internet to see, some of the things that I’ll be working on in the new year. Normally, I view personal growth as an ongoing affair and so I stay away from new year resolutions, but since one of my goals for 2014 is very related to writing I figured this would be a good way to start. Well, here we go with a few things I’d like to accomplish in 2014:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Blog more:&lt;/strong&gt; This is something that I’ve gotten a lot of value out of in the past and let slide lately. I’ve always focused on quality over quantity, so I’ll target an average of one post per month for now.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Put more effort into OpenFisheries.org:&lt;/strong&gt; This project hasn’t really been as flifilling as I’d hoped at the outset. Putting some more effort into the project sholid reap rewards in the future.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Take Andrew Ng’s Machine Learning Course:&lt;/strong&gt; Not much to say here. I’ve heard great things about the course, so I’ve registered and started watching the lectures.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Invest more in other people:&lt;/strong&gt; This is not a 180 for me. I feel I’ve always done a reasonably good job of sharing credit with others and being inclusive, however, this year I’ve been exposed to the idea that I can really help others grow in their careers by sharing experiences and offering challenges (delegating?) to those that are keen to accept. Of course, the idea of investing in others will also apply to my partner, but in a different way than career focused individuals.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Complete a predictive CFL model:&lt;/strong&gt; This is likely the most difficlit task in this list. CFL games are just so random. I don’t even want to get started on my (lack of) success up to this point trying to predict game outcomes. I might have to settle for a NFL prediction model, but either way, this sholid also be the most fun of the tasks on this list. &amp;lt;/ul&amp;gt; 
+This is all for now. Until next time….&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Canada post sues Canadian web2.0 &#038; gis pioneer</title>
+   <link href="http://www.andrewdyck.com//canada-post-sues-canadian-web2-gis-pioneer/"/>
+   <updated>2012-04-12T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/canada-post-sues-canadian-web2-gis-pioneer</id>
+   <content type="html">&lt;p&gt;Earlier today I learned on twitter that Canada Post, a Federal Crown Corporation in Canada, had filed suit against the owner of geocoder.ca. This company is a small startup that operates a free online geocoding service, presumably as advertisement for services available by the company’s owner Ervin Ruci.&lt;/p&gt;
+
+&lt;p&gt;Although I was disappointed at the news from the beginning, it’s not always the case that the little guy is just minding their business when a corporate giant comes along with their legal team. I read both the &lt;a href=&quot;http://geocoder.ca/?sued=1&quot;&gt;Statement of Claim&lt;/a&gt; prepared on behalf of Canada Post and the &lt;a href=&quot;http://www.cippic.ca/sites/default/files/Geolytica_Statement_of_Defence.pdf&quot;&gt;Statement of Defence&lt;/a&gt; prepared on behalf of Geolytica, the legal name under which geocoder.ca operates. Below I outline some interesting and some comical highlights of the documents.&lt;/p&gt;
+
+&lt;p&gt;The basic claim by the plaintiff is simple, geocoder.ca is infringing on an asserted copyright over a database of Canadian postal codes by duplicating this information and selling it on the website. The statement of defence is far more interesting. It offers this gem:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Contrary to to the Plaintiff’s assertion at paragraph 11 of the Statement of Claim that “Her Majesty’s copyright to the CPC Database was transferred to Canada Post” under section 63 of the Canada Post Corporation, no section 63 of the current Canada Post Corporation Act even exists. Neither does the Act that came into force in 1981 transfer such title.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Seems that the &lt;a href=&quot;http://www.cippic.ca&quot;&gt;CIPPIC&lt;/a&gt;, the organization defending Geolytica, have come out swinging. They follow-up this comment with this: &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Further, even if copyright subsists in the CPC Database … the Defendant has not infringed any copyright because it has not produced, reproduced or copied the CPC Database, nor otherwise engaged in any act in respect of the CPC Database which only a copyright owner may do. Nor has the Defendant at any time accessed, or had access, to the CPCC Database.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You see, Ervin Ruci claims to have used a crowdsourcing technique to build information about postal codes in Canada. He did this over a period of years with an algorithm that parsed geocoding queries to his website. So, when someone searched for the address “2475 Bayswater Street, Vancouver, BC, V6K 4N3″, he has pretty good information that the address 2475 Bayswater Street, Vancouver, BC, lies within the area covered by V6K 4N3. Over time, he collected enough information to have a pretty good idea of the geographic coordinates associated with Canadian postal codes. Pretty neat idea.&lt;/p&gt;
+
+&lt;p&gt;One last tidbit from the Statement of Defence is this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;An address, including the postal code, is a fact and not an original work within the meaning of the &lt;em&gt;Copyright Act&lt;/em&gt;. … If a postal code were not a fact, but were rather a copyrighted work, Canadians would regularly infringe Canada Post’s alleged sole right to produce and reproduce “any part” of the CPC Database, as such right is alleged at paragraph 5 of the Plaintiff’s Statement of Claim. Such a result is absurd.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What this is saying is that postal codes are much like the fact that water is the liquid state of H20. When I say that I used to reside at 2475 Bayswater Street, Vancouver, BC, it is like saying that the building I lived in was a mixed residential/commercial low-rise building. Similarly, the postal code V6K4N3, applies to that address and this is simply a fact rather than a copyright infringement. &lt;/p&gt;
+
+&lt;p&gt;The reason this is absurd, as the statement of defence states, is that if “any part” of Canada Post’s allegedly copyrighted database of postal codes is subject to that copyright, then I have just infringed that copyright by writing an old address of mine in this blog post just the same as thousands of Canadians would be infringing the copyright every day by writing their address and postal code on envelopes, forms, job applications, etc. Likewise, any number of businesses that ask customers to share their address for mailing purposes would also be guilty of infringing this copyright by storing their mailing list rather than purchases the Canada Post database.&lt;/p&gt;
+
+&lt;p&gt;I wish Ervin Ruci and his defence team CIPPI the best of luck in this case and hope that the judge sets some decent legal precendents so these types of innovation crushing legal moves can be avoided in the future. If you are so inclined, consider &lt;a href=&quot;http://geocoder.ca/?sued=1&quot;&gt;donating to Ervin’s legal defence fund here&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Comments closed</title>
+   <link href="http://www.andrewdyck.com//comments-closed/"/>
+   <updated>2012-01-22T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/comments-closed</id>
+   <content type="html">&lt;p&gt;After reading a very insightful post a few weeks ago (that I’ve since lost the link to…sorry), I’ve decided to close the comments section on all posts on my blog. Yes, the spam is annoying to deal with, but I’ve had some great experiences over the years meeting people who comment on my posts. I don’t want to miss out on that, so I hope that readers will take the time to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#111;&amp;#109;&amp;#109;&amp;#101;&amp;#110;&amp;#116;&amp;#115;&amp;#064;&amp;#097;&amp;#110;&amp;#100;&amp;#114;&amp;#101;&amp;#119;&amp;#100;&amp;#121;&amp;#099;&amp;#107;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;send me an e-mail&lt;/a&gt; or hit me up on &lt;a href=&quot;http://twitter.com/andrewjdyck&quot;&gt;twitter&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;I hope that by forcing blog comments to go through by e-mail inbox I will make a more personal connection with those who contact me. But, by far what I see as the biggest potential benefit of moving comments free is that it may encourage more people to start blogging or engaging with others on Twitter. It’s very easy to leave a comment on a blog post and never come back to follow the discussion. Also, when you do leave a comment on someone’s blog, it becomes more about them than about your own work — maybe one reason blog comment sections are a favoured home of internet trolls. &lt;/p&gt;
+
+&lt;p&gt;I hope that when potential commenters realize that they cannot leave their mark on a blog post of mine they will do one of two things:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Send me their comment in an e-mail and we can discuss. I’ll then update the post with changes and/or additions as necessary&lt;/li&gt;
+  &lt;li&gt;Write a blog post, tweet, website, whatever of their own&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I’d like to see potential commenters take that moment of insight that a post on this blog inspired and create something new of their own. This is especially important for a number of topics that I write about where there aren’t a million other blogs covering the territory. For example, there are only a handful of Stata focused blogs and it will be a long time before the open data scene suffers from over-coverage.&lt;/p&gt;
+
+&lt;p&gt;I hope that this little experiment is positive. If you have any comments on this experiment of mine, please feel free to &lt;a href=&quot;http://www.andrewdyck.com/contact&quot;&gt;get in contact with me&lt;/a&gt;. Or, write a blog post of your own with your thoughts on why blog comments are good, bad, or ugly.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Open Data Saskatchewan begins</title>
+   <link href="http://www.andrewdyck.com//open-data-saskatchewan-begins/"/>
+   <updated>2011-11-19T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/open-data-saskatchewan-begins</id>
+   <content type="html">&lt;p&gt;The move towards more &lt;a href=&quot;http://en.wikipedia.org/wiki/Open_data&quot;&gt;open data&lt;/a&gt;, both in government and business, seems to be gaining steam around the world. As a long-time user of the &lt;a href=&quot;http://data.worldbank.org/data-catalog/world-development-indicators&quot;&gt;World Development Indicators (WDI)&lt;/a&gt;, I was impressed when the World Bank (WB) decided to &lt;a href=&quot;http://data.worldbank.org/&quot;&gt;open up their data repository&lt;/a&gt; to the world and started the &lt;a href=&quot;http://appsfordevelopment.challengepost.com/&quot;&gt;Apps for Development challenge&lt;/a&gt; to spur innovation using these datasets. &lt;/p&gt;
+
+&lt;p&gt;Although the honour of first prize in the Apps for Development challenge went to StatPlanet, which visualizes WDI data on a global map, I found the second and third prize winners interesting as well. In second prize, the &lt;a href=&quot;http://devtimelines.appspot.com/&quot;&gt;development timelines app&lt;/a&gt; allows one to compare historical development statistics through time across countries. Third prize in the challenge was claimed by the &lt;a href=&quot;http://www.yourtopia.net/&quot;&gt;Yourtopia app&lt;/a&gt;, which allows one to mashup WDI data to show which countries around the world are most like your vision of a utopia. &lt;/p&gt;
+
+&lt;p&gt;After this contest, I was absolutely floored when it was announced that Kenya would be taking the plunge into open data with a national data portal. I cannot wait to see the applications of this data in the near future.&lt;/p&gt;
+
+&lt;p&gt;I’ve also had the pleasure of being involved in the &lt;a href=&quot;http://www.opendatabc.ca&quot;&gt;open data movement in British Columbia&lt;/a&gt; (BC) after their highly successful &lt;a href=&quot;http://www.data.gov.bc.ca/&quot;&gt;data portal&lt;/a&gt; was launched. At a hack-a-thon, where developers, enthusiasts and other citizens gather to work with open data, I was involved in creating the bones of an &lt;a href=&quot;http://www.opendatabc.ca/projects/bc-job-explorer.html&quot;&gt;occupation explorer application&lt;/a&gt; that seeks to put data into the hands of high school students as they make education decisions about their future careers. Other great examples of applications created in hackathons at these events in BC include: &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.proactivedisclosure.ca/&quot;&gt;Proactive Disclosure&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mycatchbc.dev.opendatabc.ca/&quot;&gt;My Catch BC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.opendatabc.ca/municipal-debt-comparatron.html&quot;&gt;Municipal Debt Comparitron&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With all these examples of open data applications and the rapid economic growth in my home province of Saskatchewan in mind, I hoped to see similar and even greater success here. With a great help and advice from other open data enthusiasts around the country I started an &lt;a href=&quot;http://opendatask.ca&quot;&gt;organization called OpenDataSK&lt;/a&gt; to promote open data use in Saskatchewan. So far the response has been much greater than I dreamed. I may have been in a little hasty in organizing our first hackathon in the province in order to meet &lt;a href=&quot;http://www.opendataday.org&quot;&gt;International Open Data day&lt;/a&gt; on December 3, 2011, however, even this looks to be promising. &lt;/p&gt;
+
+&lt;p&gt;I’ve collected links to several data sources in the province that could be used at the hackathon and now I cannot wait to see what happens with data enthusiasts congregate and creativity starts flowing. If you are in the province, or within reasonable travel time, I encourage you to consider attending. The location is yet to be determined, however, information when it becomes available will be both on the &lt;a href=&quot;http://opendatask.ca&quot;&gt;OpenDataSK website&lt;/a&gt; and the &lt;a href=&quot;http://opendatask1.eventbrite.com&quot;&gt;Eventbrite event page&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Update on openfisheries.org data API</title>
+   <link href="http://www.andrewdyck.com//update-on-openfisheries-org-data-api/"/>
+   <updated>2011-10-31T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/update-on-openfisheries-org-data-api</id>
+   <content type="html">&lt;p&gt;Had some very welcome interest in the &lt;a href=&quot;http://openfisheries.org&quot;&gt;openfisheries.org&lt;/a&gt; project from a PhD student at UC Davis, &lt;a href=&quot;http://www.carlboettiger.info/&quot;&gt;Carl Boettiger&lt;/a&gt;. Due to this interest I’ve pushed out some &lt;a href=&quot;http://blog.openfisheries.org/post/12188347967/initial-test-of-the-data-api-with-rfisheries-r-and&quot;&gt;decent updates to the data API&lt;/a&gt;, so now you can download fishery landings data either globally, by country, or by species group in the familiar JSON format. Ever since seeing &lt;a href=&quot;http://www.carlboettiger.info/archives/3080&quot;&gt;this graphic&lt;/a&gt; using the openfisheries data today, my mind in buzzing with the potential of including more and more fishery data sources in the API to see what others will create. &lt;/p&gt;
+
+&lt;p&gt;For the time being, the data API is only available with the use of an API key, to prevent crashes due to unforeseen vulnerabilities in my coding. But, that’s not very open of me, is it? In the next few days I will be shoring up the API coding and lifting the API key requirement so that all can use it. When I do so, I’ll post an update here with links to the API connection info.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>openfisheries.org is live</title>
+   <link href="http://www.andrewdyck.com//openfisheries-org-is-live/"/>
+   <updated>2011-09-02T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/openfisheries-org-is-live</id>
+   <content type="html">&lt;p&gt;A few days ago I completed enough edits to a project I’ve been working on in my spare time to go live with &lt;a href=&quot;http://openfisheries.org/&quot;&gt;OpenFisheries.org&lt;/a&gt;. The site is in early beta, and for now shows a &lt;a href=&quot;http://mbostock.github.com/protovis/&quot;&gt;Protovis&lt;/a&gt; implementation of what graphics on the site will look like as the dynamic elements are added.&lt;/p&gt;
+
+&lt;p&gt;The state of knowledge about global fisheries is really quite poor and worse yet, getting accurate data on anything is an enormous challenge. My hope for the site is to serve as a portal for those interested in fisheries, both large- and small-scale to view a summary of publicly available scientific and economic fisheries data. Additionally, since the graphic summaries are querying a MySQL database of statistics, I will offer an open API for querying and downloading the data as well as embedding graphics in other web pages.&lt;/p&gt;
+
+&lt;p&gt;There is a little info &lt;a href=&quot;http://openfisheries.org/about&quot;&gt;about the project on the about page&lt;/a&gt; and I hope to have &lt;a href=&quot;http://blog.openfisheries.org/&quot;&gt;small updates on the blog&lt;/a&gt;. For the first time, I chose to host this with &lt;a href=&quot;http://http://www.tumblr.com&quot;&gt;Tumblr&lt;/a&gt; instead of &lt;a href=&quot;http://wordpress.org/&quot;&gt;WordPress&lt;/a&gt;, so I’ll see how that goes. There is also a &lt;a href=&quot;https://twitter.com/openfisheries&quot;&gt;Twitter handle for OpenFisheries.org&lt;/a&gt; where I share posts related to open fisheries data.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Regex, sql files, and panel data recoding on Statabytes</title>
+   <link href="http://www.andrewdyck.com//regex-sql-files-and-panel-data-recoding-on-statabytes/"/>
+   <updated>2011-08-10T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/regex-sql-files-and-panel-data-recoding-on-statabytes</id>
+   <content type="html">&lt;p&gt;I’ve written three posts for my blog on Stata in the last month or so. One includes a &lt;a href=&quot;http://statabytes.andrewdyck.com/blog/a-regex-hack-to-simplify-subsetting-using-the-if-statement/&quot;&gt;neat little trick to use regex commands&lt;/a&gt; to shorten -if- statements after a command run either interactively or in an do-file. I like this trick because it can be particularly helpful when you are trying to find records in a large or messy (or both! -shudder-) dataset. &lt;/p&gt;
+
+&lt;p&gt;Another post is a rundown on &lt;a href=&quot;http://statabytes.andrewdyck.com/blog/loading-a-sql-file-into-stata/&quot;&gt;getting data from a database dump saved in a .sql file into Stata&lt;/a&gt;. I’m a big fan of using a relational database, such as MySQL or PostgreSQL, in conjunction with any analysis in Stata. I hope to have more about working with relational databases in Stata in the future.&lt;/p&gt;
+
+&lt;p&gt;Lastly, you may want to checkout a post on &lt;a href=&quot;http://statabytes.andrewdyck.com/blog/recoding-a-panel-dataset-with-time-periods/&quot;&gt;recoding observations in a panel dataset&lt;/a&gt;. It’s a simple trick I picked up from a discussion on LinkedIn, but helpful nonetheless.&lt;/p&gt;
+
+&lt;p&gt;Also, Stata 12 is out now. Unlike with Stata 11, I don’t feel like the improvements in this version will yield more than $500 of value for me so I’m thinking about skipping this upgrade. My only concern is about incompatibility with other Stata users, especially on &lt;a href=&quot;http://www.stata.com/statalist/&quot;&gt;Statalist&lt;/a&gt;, in ways currently unknown to me. I guess we’ll see how it goes…..&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>New Stata blog</title>
+   <link href="http://www.andrewdyck.com//new-stata-blog/"/>
+   <updated>2011-06-25T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/new-stata-blog</id>
+   <content type="html">&lt;p&gt;Lately many of my posts have involved the Stata programming language. I think that the amount I’ve been blogging about Stata warrants a blog of it’s own to separate these from other topics that I cover. So, starting today you can find my writings on Stata tips and tricks at my a new blog &lt;a href=&quot;http://statabytes.andrewdyck.com&quot;&gt;Statabytes&lt;/a&gt;. I plan to highlight short tips on using some of Stata’s most useful features as well as some interesting discussions of Stata on the web including &lt;a href=&quot;http://www.stata.com/statalist/&quot;&gt;Statalist&lt;/a&gt;, &lt;a href=&quot;http://stackoverflow.com/questions/tagged/stata&quot;&gt;StackOverflow&lt;/a&gt;, and &lt;a href=&quot;http://www.linkedin.com/groups?gid=3201984&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Using -levelsof- to future-proof a loop through factorial variables in Stata</title>
+   <link href="http://www.andrewdyck.com//using-levelsof-to-future-proof-a-loop-through-factorial-variables-in-stata/"/>
+   <updated>2011-06-02T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/using-levelsof-to-future-proof-a-loop-through-factorial-variables-in-stata</id>
+   <content type="html">&lt;p&gt;Stata’s -&lt;a href=&quot;http://www.stata.com/help.cgi?levelsof&quot;&gt;levelsof&lt;/a&gt;- command was a solution to a problem I encountered the other day when I had to write a script that looped through a dataset and was one that I previously didn’t know about. In general, I feel that if you find yourself making looping through observations in a dataset or creating many nested loops, there is a good chance there’s a better way of tackling the problem at hand. That said, below I’ll outline how one might use -levelsof- that can help you future-proof your Stata scripts. Before you get started incorporating this in your do-file, read up on -&lt;a href=&quot;http://www.stata.com/help.cgi?bysort&quot;&gt;bysort&lt;/a&gt;-, which I won’t get into here but could save you much coding and headache.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;You’ve just opened a large dataset with several factor variables&lt;/strong&gt;&lt;br /&gt;
+For now, I won’t ask why you want to loop through groups in a large dataset but assume that you’ve made up your mind to do so. Here is what you might like to do for a dataset with two factor variables, City and Gender, which are stored as strings:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;* sets up some locals with the levels of each factor variable
+local genders &quot;male female&quot;
+local cities &quot;Vancouver Boston&quot;
+
+* a loop through the groups
+foreach c of local cities {
+    foreach g of local genders {
+        quietly summarize hockey_spirit if gender == &quot;`g&#39;&quot; &amp;amp; city == &quot;`c&#39;&quot;, meanonly
+        local m = r(mean)
+        di &quot;Hockey spirit for `g&#39; people in `c&#39; is `m&#39;&quot;
+    }
+}
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;An alternative&lt;/strong&gt;&lt;br /&gt;
+The above example works fine in this case, but if there are many cities we might not want to type out all the options into a local and store it in the script. Furthermore, we might expect that the number of cities in our dataset will change at some point so we’d like to future-proof ourselves a little. &lt;/p&gt;
+
+&lt;p&gt;Also, there may be some cities where only male or only female observations are present. Perhaps the gender data for some of the observations are collected with an &lt;a href=&quot;http://smarterware.org/7388/the-case-against-drop-down-identities&quot;&gt;open text field&lt;/a&gt;, thus allowing the gender variable to have more than two options.&lt;/p&gt;
+
+&lt;p&gt;This is where -levelsof- can help you with looping across factor variables. Adapting the example above to the situation where we have 30 hockey cities and some of these cities have 3 or more reported genders, while others do not, we could use:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;* a loop through the groups
+quietly levelsof city, local(cities)
+foreach c of local cities {
+    quietly levelsof gender if city == &quot;`c&#39;&quot;, local(genders)
+    foreach g of local genders {
+        quietly summarize hockey_spirit if gender == &quot;`g&#39;&quot; &amp;amp; city == &quot;`c&#39;&quot;, meanonly
+        local m = r(mean)
+        di &quot;Hockey spirit for `g&#39; people in `c&#39; is `m&#39;&quot;
+    }
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Hope this is useful and happy coding!&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>First shot at grabbing data from web APIs using Stata</title>
+   <link href="http://www.andrewdyck.com//first-shot-at-grabbing-data-from-web-apis-using-stata/"/>
+   <updated>2011-01-18T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/first-shot-at-grabbing-data-from-web-apis-using-stata</id>
+   <content type="html">&lt;p&gt;I love the new World Bank data site. The site makes finding and downloading data from the World Development Indicators very easy. But, I dream of searching the World Bank databases and downloading datasets directly into Stata all without leaving my Stata terminal. &lt;/p&gt;
+
+&lt;p&gt;The World Bank offers an API for it’s data that has already been&lt;a href=&quot;http://cran.r-project.org/web/packages/WDI/index.html&quot;&gt; incorporated into a package for R&lt;/a&gt;. The package uses the API to download XML data and parses it into a dataframe. This can be done in R because there is &lt;a href=&quot;http://cran.r-project.org/web/packages/XML/index.html&quot;&gt;a nice XML package for R&lt;/a&gt; to do the heavy lifting but no such package yet exists for Stata. The API can also serve up data as a JSON object, but that cannot be easily imported into Stata either.&lt;/p&gt;
+
+&lt;p&gt;So, how to get an XML or JSON object into Stata? First off, I think that parsing JSON is the way to go since although the World Bank supports both XML and JSON, some other APIs only return JSON and wouldn’t it be great if Stata could access many web data APIs? If you think XML would be a better/easier route to go, please let me know in the comments.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What’s a JSON object?&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&quot;http://en.wikipedia.org/wiki/JSON&quot;&gt;JSON&lt;/a&gt;, which stands for JavaScript Object Notation, is an often used data format on the web. It is appears as a string. For example:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: jscript; title: ; notranslate&quot; title=&quot;&quot;&gt;&quot;[{&quot;firstName&quot;:&quot;John&quot;,&quot;lastName&quot;:&quot;Smith&quot;,&quot;age&quot;:25,&quot;address&quot;:{&quot;streetAddress&quot;:&quot;21 2nd Street&quot;,&quot;city&quot;:&quot;New York&quot;,&quot;state&quot;:&quot;NY&quot;,&quot;postalCode&quot;:&quot;10021&quot;},&quot;phoneNumber&quot;:[{&quot;type&quot;:&quot;home&quot;,&quot;number&quot;:&quot;212 555-1234&quot;},{&quot;type&quot;:&quot;fax&quot;,&quot;number&quot;:&quot;646 555-4567&quot;}]}]&quot;
+&lt;/pre&gt;
+
+&lt;p&gt;So compact! It saves on download size (and processing time for larger datasets) but looks a little messy so most JSON parsers will also express a JSON string in “pretty” notation which looks like:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: jscript; title: ; notranslate&quot; title=&quot;&quot;&gt;[
+ {
+     &quot;firstName&quot;: &quot;John&quot;,
+     &quot;lastName&quot;: &quot;Smith&quot;,
+     &quot;age&quot;: 25,
+     &quot;address&quot;:
+     {
+         &quot;streetAddress&quot;: &quot;21 2nd Street&quot;,
+         &quot;city&quot;: &quot;New York&quot;,
+         &quot;state&quot;: &quot;NY&quot;,
+         &quot;postalCode&quot;: &quot;10021&quot;
+     },
+     &quot;phoneNumber&quot;:
+     [
+         {
+           &quot;type&quot;: &quot;home&quot;,
+           &quot;number&quot;: &quot;212 555-1234&quot;
+         },
+         {
+           &quot;type&quot;: &quot;fax&quot;,
+           &quot;number&quot;: &quot;646 555-4567&quot;
+         }
+     ]
+ }
+]
+&lt;/pre&gt;
+
+&lt;p&gt;Here you can see that a JSON object can be multi-dimensional. Stata requires data to be square so before we can get a nice tidy “json.dta” file there will need to be some parsing of the json string.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reading data from an API in Stata&lt;/strong&gt;&lt;br /&gt;
+Stata is a great program for data analysis but turns out it’s not the greatest web browser. It does not handle redirects well, I’d guess for security, so my plans for making a Stata Twitter client (with &lt;a href=&quot;http://www.failuretorefrain.com/jeff/&quot;&gt;Jeffrey Horn&lt;/a&gt;) will probably be on hold until we can figure out a way to get around this limitation or something new is introduced in a Stata update. &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If you want to see the problem with Twitter redirects, try using the url “http://search.twitter.com/search.json?q=@Stata” with the Mata program I include later in the post.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Parsing pretty(ish) JSON with Stata&lt;/strong&gt;&lt;br /&gt;
+So far I have two methods in mind for reading JSON data. The first uses Mata commands to read the string into Mata’s memory and the other uses the command -intext- which will read the string directly into Stata. I’m partial to the first method because it involves reading JSON data into an associative array that can be munged for use on many other websites. &lt;del&gt;The downside is that, as far as I can tell, associative arrays were introduced in Stata 11.1 so users who haven’t upgraded to the latest version wouldn’t be able to use it.&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;That said, I’m a long way off from getting JSON data into a .dta file so I’m very open to ideas and help. So far, I have written a quick mata program that will read json data from a url and display the (not quite pretty) formatted data in the terminal. The rudimentary code is:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;mata
+void pretty_json(string scalar url)
+{	
+	b = fget( fopen( url, &quot;r&quot; ) )
+	b = subinstr( b, `&quot;{&quot;&#39;,`&quot;{\n&quot;&#39;)
+	b = subinstr( b, `&quot;[&quot;&#39;, `&quot;[\n&quot;&#39;)
+	b = subinstr( b, `&quot;,&quot;&quot;&#39;, `&quot;,\n&quot;&quot;&#39;)
+	b = subinstr( b, `&quot;,[&quot;&#39;, `&quot;,\n[&quot;&#39;)
+	b = subinstr( b, `&quot;&quot;}&quot;&#39;, `&quot;&quot;\n}&quot;&#39;)
+	b = subinstr( b, `&quot;,{&quot;&#39;, `&quot;,\n{&quot;&#39;)
+	b = subinstr( b, `&quot;:{&quot;&#39;, `&quot;: {&quot;&#39;)
+	b = subinstr( b, `&quot;},&quot;&#39;, `&quot;\n},\n&quot;&#39;)
+	printf(b)
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Then test it out on World Bank data for Brazil’s GNP between 1960:1970:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;url = &quot;http://api.worldbank.org/countries/br/indicators/NY.GNP.PCAP.CD?date=1960:1970&amp;amp;format=json&quot;
+pretty_json(url)
+&lt;/pre&gt;
+
+&lt;p&gt;You should see the data string is now in lines instead of a character string in your terminal. This could be written to a text document, imported to Stata using -intext- and cleaned with some regex skills. Probably the fastest way to get web api data into Stata the main drawback is that it doesn’t allow for much interaction with the API and one would need to know the url first. The World Bank API has search functionality and I’d love for a Stata World Bank data module to allow the user to search the database, choose a series to download and then import that data.&lt;/p&gt;
+
+&lt;p&gt;Any comments from fellow Stata users out there would be greatly appreciated. My progress on this topic is in a &lt;a href=&quot;https://github.com/andrewjdyck/statajson&quot;&gt;git repository on github&lt;/a&gt; if you want to watch or branch it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; &lt;em&gt;&lt;a href=&quot;http://twitter.com/#!/Stata&quot;&gt;@Stata&lt;/a&gt; on Twitter sent my a direct message informing me that associative arrays were actually introduced during Stata 10’s lifetime so it’s only pre-Stata 10 users that wouldn’t be able to use ado files that involve associate arrays.&lt;/em&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Ideas on how to &#8220;fix&#8221; fisheries subsidies</title>
+   <link href="http://www.andrewdyck.com//ideas-on-how-to-fix-fisheries-subsidies/"/>
+   <updated>2011-01-17T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/ideas-on-how-to-fix-fisheries-subsidies</id>
+   <content type="html">&lt;p&gt;A friend of mine recently asked me how an economist might solve the issue of subsidies to the world’s fisheries, which some including myself, think are promoting overexploitation of fish around the world. I kept my response as short as possible (sometimes I get wordy in e-mail) but wanted to expand on some ideas here.&lt;/p&gt;
+
+&lt;p&gt;My suggestions on how to ‘fix’ fisheries subsidies with additional comments:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I think it would be safe to blanket ban fuel subsidies which is a decent chunk of the world total. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;On second thought, even fuel subsidies are a tough subject. Not all the world’s fisheries are collapsing so where a fishery is under-exploited it could make sense to subsidize a local ‘infant’ fishing industry’s fuel consumption so they can compete with the larger international fleets. The issue gets tougher yet when it comes to thinking about domestic vs. imported food sources, which I’m sure is important in some areas.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Outside of fuel subsidies it is a very difficult subject. Is there a commonly used standard of sustainability in a fishery that cannot be bent to the will of those seeking financial assitance from the public purse? To what degree is a country’s development status (“developing” or “developed”) correlated with the development of fisheries targeted by that nation’s inhabitants? &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;My thought was that, if only we could allow just the ‘good’ subsidies for things that promote sustainability. But, it seems that the term ‘sustainability’ has lost much of it’s meaning and there seems to be a general lack of methods for measuring sustainable fisheries.&lt;/p&gt;
+
+&lt;p&gt;I’m also curious about what the effect of having different rules for “developing” and “developed” countries. As Hans Rosling has shown, it is becoming increasingly difficult to categorize a country into one or the other category. Furthermore, even if one could place a country safely into one category of development, the fishing industry is generally a very small percentage of that nation’s economy (between 0 – 2%). It’s not clear to me (but I’m open to seeing further data) that a country’s status as “developed” or “developing”, if one could categorize a country as such, will have anything to do with the development of a country’s fisheries. It is common for fishing communities to be quite removed from metropolitan areas so a highly developed country could include fishing communities with very poor inhabitants. The converse could also be true, where a country with low development includes some communities that have benefited greatly from injections of development aid, or are simply doing well for themselves in comparison to others in their country or other fishermen and women around the world.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A suggestion for a passive but effective step towards reducing harmful subsidies in the fishing industry would be to outright ban all payments from government to the fishing industry that are not well-documented, quantified and submitted to a neutral body such as the WTO. Sure, subsidies that are submitted would still be allowed, but this could have a cooling effect on subsidization by forcing everyone’s laundry to be laid out on the line. Dirty items will be easier to spot and, hopefully, government will be less likely to engage in harmful subsidy programs if they know that their competitors (other governments) can see their playbook and call an audible (i.e. report them to WTO). &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I thought this was a great idea at the time of writing. Transparency in government seems to be exploding these days with initiatives like the &lt;a href=&quot;http://data.worldbank.org&quot;&gt;World Bank’s open data&lt;/a&gt;, &lt;a href=&quot;http://www.gapminder.org&quot;&gt;Hans Rosling’s Gapminder&lt;/a&gt;, the &lt;a href=&quot;http://www.guardian.co.uk/data&quot;&gt;Guardian datastore&lt;/a&gt;, &lt;a href=&quot;http://www.fishsubsidy.org&quot;&gt;fishsubsidy.org&lt;/a&gt;, and the &lt;a href=&quot;http://feru.org&quot;&gt;Fisheries Economics Research Unit&lt;/a&gt; (where I work), among others. However, I remain cautiously optimistic about how increased transparency in fisheries subsidies can promote fisheries that are well-managed and free of government-fuelled (literally) over-exploitation.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Economist Paul Krugman comments on the physical sciences</title>
+   <link href="http://www.andrewdyck.com//economist-paul-krugman-comments-on-the-physical-sciences/"/>
+   <updated>2010-12-09T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/economist-paul-krugman-comments-on-the-physical-sciences</id>
+   <content type="html">&lt;p&gt;Looking through some old blog post drafts I found this and, although not timely, the content is still relevant since the discussion of cap-and-trade emissions reduction programs is ongoing in one for or another.&lt;/p&gt;
+
+&lt;p&gt;Discussing a recent article by climatologist James Hensen, Paul Krugman explains the differences between carbon taxes and a cap-and-trade system. After explaining that Hensen may be confused about how incentives work under the two systems Krugman says this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Things like this often happen when economists deal with physical scientists; the hard-science guys tend to assume that we’re witch doctors with nothing to tell them, so they can’t be bothered to listen at all to what the economists have to say, and the result is that they end up reinventing old errors in the belief that they’re deep insights. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It is an interesting observation that, unfortunately, is all too common. Expanding on this theme, Krugman also says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[W]hile I defer to [James Hensen] on all matters climate, &lt;a href=&quot;http://www.nytimes.com/2009/12/07/opinion/07hansen.html?_r=1&quot;&gt;today’s op-ed article&lt;/a&gt; suggests that he really hasn’t made any effort to understand the economics of emissions control.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Translating for Canadians, imagine coaching a hockey dream team with power forwards Gretzky and Crosby in the line up. Although they are both amazing players, you’d be a fool to put either one in net. Rather, you’d best leave those two on offence and look for a great net-minder to keep the puck out of the net. Recognizing one’s strengths and weaknesses and specializing in your strengths not only makes sense in sport, but could be useful in research as well.&lt;/p&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://krugman.blogs.nytimes.com/2009/12/07/unhelpful-hansen/&quot;&gt;Unhelpful Hansen – Paul Krugman Blog – NYTimes.com&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Advocate vs. scientist on SMBC</title>
+   <link href="http://www.andrewdyck.com//advocate-vs-scientist-on-smbc/"/>
+   <updated>2010-12-09T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/advocate-vs-scientist-on-smbc</id>
+   <content type="html">&lt;p&gt;I’m not sure which of these categories I’d fall into….&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.smbc-comics.com/index.php?db=comics&amp;amp;id=2088&quot;&gt;&lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/12/20101209.gif&quot; alt=&quot;&quot; title=&quot;SMBC - December 9, 2010&quot; width=&quot;540&quot; height=&quot;701&quot; class=&quot;aligncenter size-full wp-image-974&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://www.smbc-comics.com/index.php?db=comics&amp;amp;id=2088&quot;&gt;Saturday Morning Breakfast Cereal&lt;/a&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Mathematica 8 translates english to mathematics</title>
+   <link href="http://www.andrewdyck.com//mathematica-8-translates-english-to-mathematics/"/>
+   <updated>2010-12-08T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/mathematica-8-translates-english-to-mathematics</id>
+   <content type="html">&lt;p&gt;Yup, this got me &lt;a href=&quot;http://www.env-econ.net/2010/11/i-hope-the-programmers-at-sas-limdep-stata-gauss-and-matlab-are-all-watching-this.html&quot;&gt;a little excited&lt;/a&gt; too.&lt;/p&gt;
+
+&lt;p&gt;If a statistical programming language like R could implement an interface such as this, the learning curve would be dramatically reduced and much easier to adopt.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Download and unzip data files from Stata (Linux/Windows)</title>
+   <link href="http://www.andrewdyck.com//download-and-unzip-data-files-from-stata/"/>
+   <updated>2010-11-22T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/download-and-unzip-data-files-from-stata</id>
+   <content type="html">&lt;p&gt;Recently, I’ve been using Stata’s -shp2dta- command to convert some shapefiles to stata format, grabbing Lat/Lon data and merging into another dataset. There were several compressed shapefiles I wanted to download contained in a directory from the web. I could manually download each file and uncompress each one but that would be time consuming. Also, when the maps are updated, I’d have to do the download/uncompress all over again. I’ve found that the process can be automated from within Stata by using a combination of -shell- and some handy terminal commands. If you are using Windows, you’ll need an additional set of command-line utilities called &lt;a href=&quot;http://sourceforge.net/projects/unxutils/&quot;&gt;Unix Utils&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Steps to download and start using compressed data are outlined below.&lt;/p&gt;
+
+&lt;p&gt;**step one (skip if Linux user): **&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sourceforge.net/projects/unxutils/&quot;&gt;Download Unix Utilities for Windows&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Unzip Unix tools to a directory of your choice. I put them in my “Program Files” directory.&lt;/li&gt;
+  &lt;li&gt;Browse through the directory you just created to find the folder where the executable files are. After extracting the files the executables were in: &amp;lt;pre class=&quot;brush: bash; title: ; notranslate&quot; title=&quot;&quot;&amp;gt;C:\Program Files\usr\local\wbin\&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;lt;/pre&amp;gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Add this directory to your system PATH variable. You do this so that you can call these commands from the terminal from any folder on your hard drive. In my case I right clicked My Computer, selected properties &amp;gt; Advanced settings &amp;gt; Environment Variables, then edit the “path” variable adding the text “;C:\Program Files\usr\local\wbin\” without quotation marks. Be careful not to add a space between the semi-colon and the directory name.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Step two:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Open Stata and run the following commands or add them to a do-file.&lt;/p&gt;
+
+&lt;p&gt;Change to a working directory (e.g. cd “C:\Temp”)&lt;/p&gt;
+
+&lt;p&gt;Download the file to a file called download.zip by issuing the command:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;shell wget -Odownload.zip &quot;http://example.com/download.zip&quot;
+&lt;/pre&gt;
+
+&lt;p&gt;This command will use Stata’s -shell- command to send the text following to your operating system’s shell. For the command above this will use the unix utility wget to download a compressed file.&lt;/p&gt;
+
+&lt;p&gt;Now that the file is downloaded we need to unzip the compressed archive. On Windows I prefer to use 7zip for compression, but you could also use gzip from the Unix Utils package or unzip if you’re on Linux. I’ve included all three of these options below so choose one. Again, we submit the commands to Stata with the prefix -shell- so it sends the command to the OS shell.&lt;/p&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;shell 7z x -o.\unZipped download.zip
+shell gzip -d download.zip
+shell unzip download.zip
+&lt;/pre&gt;
+
+&lt;p&gt;Including these in a do-file is extra useful as it automates the download and unzipping process. Be careful using wget in a do-file though, especially if you are trying to debug a your code. Some webmasters won’t like you downloading files multiple times and using up their bandwidth and this can get you blocked.&lt;/p&gt;
+
+&lt;p&gt;I haven’t tried it yet, but, I imagine that -shell- could be used to call other handy command line tools like Python scripts or maybe even leverage some useful R packages. I’ll post again if I have any luck with these options.&lt;/p&gt;
+
+&lt;p&gt;Now it’s time to dive into the data contained in those compressed archives and unlock their secrets. Good luck!!&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Why piracy works in one image and a quote</title>
+   <link href="http://www.andrewdyck.com//why-piracy-works-in-one-image-and-a-quote/"/>
+   <updated>2010-11-21T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/why-piracy-works-in-one-image-and-a-quote</id>
+   <content type="html">&lt;p&gt;I rented a movie from Blockbuster the other day (Clash of the Titans, which I’d give 3 stars) and I was reminded of this image below that I originally saw on &lt;a href=&quot;http://lifehacker.com/5475113/remains-of-the-day-why-piracy-works-edition&quot;&gt;the web here&lt;/a&gt;. Click the image to see the full version.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/11/GxzeV.jpg&quot;&gt;&lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/11/GxzeV-290x300.jpg&quot; alt=&quot;&quot; title=&quot;Why piracy works&quot; width=&quot;290&quot; height=&quot;300&quot; class=&quot;size-medium wp-image-855&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I also overheard the following conversation by a couple of teens in the store:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“This movie looks cool.”&lt;br /&gt;
+“Yeah, but I was looking for something else.”&lt;br /&gt;
+“Let’s just go home and watch something on the net. There’s more selection and we don’t have to return it.” &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The movie industry seems to have an uphill battle if it continues with it’s current business model.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Pop Economics on why gold might not be a great investment</title>
+   <link href="http://www.andrewdyck.com//pop-economics-on-why-gold-might-not-be-a-great-investment/"/>
+   <updated>2010-11-19T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/pop-economics-on-why-gold-might-not-be-a-great-investment</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.popeconomics.com/2010/11/19/the-reasons-i-dont-buy-gold-video/&quot;&gt;Pop Economics&lt;/a&gt; has developed the hilarious* video below that takes a jab at the &lt;a href=&quot;http://en.wikipedia.org/wiki/Gold_bug&quot;&gt;gold bugs&lt;/a&gt;. The video isn’t exactly of Oscar winning quality but it’s short and worth a quick view. &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;hilarious for an economist == somewhat amusing for the other 99.8% of the population &lt;img src=&quot;http://wp.andrewdyck.com/cms/wp-includes/images/smilies/icon_smile.gif&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; /&gt;*&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Connect to MySQL database using Stata</title>
+   <link href="http://www.andrewdyck.com//connect-to-mysql-database-using-stata/"/>
+   <updated>2010-11-10T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/connect-to-mysql-database-using-stata</id>
+   <content type="html">&lt;p&gt;Today the Stata Corp. blog &lt;a href=&quot;http://blog.stata.com/2010/11/10/connection-string-support-added-to-odbc-command/&quot;&gt;outlined a new feature introduced to Stata 11.1&lt;/a&gt; that allows one to connect to an ODBC database without setting up a DSN. This is a nice addition and simplifies the process of loading ODBC data for those one-off projects. &lt;/p&gt;
+
+&lt;p&gt;The blog post explains how to connect to database running on Microsoft’s SQL server. Below I’ll describe the process using a database on the open-source MySQL platform.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 0: Download/Install the MySQL ODBC Driver&lt;/strong&gt;&lt;br /&gt;
+If you haven’t done this already, you must install an ODBC driver to connect to MySQL servers. You can &lt;a href=&quot;http://dev.mysql.com/downloads/connector/odbc&quot;&gt;download the latest version of the MySQL ODBC driver&lt;/a&gt; and install it by following the prompts.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1: Load data from your MySQL database using Stata&lt;/strong&gt;&lt;br /&gt;
+The following example code will connect to a MySQL database (worldstats) running on my local machine (localhost) and extract a unique ID and name using a SQL statement (‘sql’) from a table of country attributes (countries). This database requires a username (UID=andrew) and password (PWD=pass) but these may not be needed depending on how the server you are connecting to is configured.&lt;/p&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;local db &quot;DRIVER={MySQL ODBC 5.1 Driver};SERVER=localhost;DATABASE=worldstats;UID=andrew;PWD=pass;&quot;
+local sql &quot;SELECT ID, CountryName FROM countries&quot;
+
+odbc load, exec(&quot;`sql&#39;&quot;) conn(&quot;`db&#39;&quot;) clear
+des
+&lt;/pre&gt;
+
+&lt;p&gt;For more info about using -odbc- in Stata search the help files by typing “help odbc”. Good luck!&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Short script to backup MySQL database from Python</title>
+   <link href="http://www.andrewdyck.com//short-script-to-backup-mysql-database-from-python/"/>
+   <updated>2010-11-03T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/short-script-to-backup-mysql-database-from-python</id>
+   <content type="html">&lt;p&gt;Although &lt;a href=&quot;http://www.mysql.com/&quot;&gt;MySQL&lt;/a&gt; is normally thought of as the relational database management system that many websites are built on, I’ve found it to be pretty useful for many non-web tasks. Some advantages to using MySQL is that it’s cross platform so I can use it on my Linux and Windows computers and the availability of the gui tool &lt;a href=&quot;http://www.phpmyadmin.net/&quot;&gt;phpMyAdmin&lt;/a&gt; which is also cross-platform. &lt;/p&gt;
+
+&lt;p&gt;If you use phpMyAdmin, or you’re a linux geek, you know that backing up your MySQL database to a .sql file is easy. There is a point-and-click interface for phpMyAdmin and you can use mysqldump in a terminal on linux. Turns out this also works on windows with a small tweak and can be called from a Python script as well if you are using that language for development….and if you’re not you should really consider it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Steps to backup a MySQL database running on windows from Python&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;My default install of WAMP2 for Windows 7 didn’t set an environment variable for the MySQL folder so I added it by adding the text “;C:\wamp\bin\mysql\MySQL 5.1.36\bin” without quotes to the windows PATH by right clicking “My Computer” &amp;gt; Properties &amp;gt; Advanced settings &amp;gt; Environment variables.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now you should be able to run mysql from the command line from any folder. Try it by opening a command window (win + r &amp;gt; cmd &amp;gt; OK) and typing: “mysql -u username”. Pretty cool.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now you’re set to run MySQL commands from Python (or PHP, etc. as well I imagine). The following few lines of code will backup an entire database to a temporary directory in your root directory. Good luck!&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre class=&quot;brush: python; title: ; notranslate&quot; title=&quot;&quot;&gt;import os
+target_dir = &#39;C:\\TEMP\\&#39;
+os.system(&quot;mysqldump --add-drop-table -c -u username -ppassword database &amp;gt; &quot;+target_dir+&quot;database.bak.sql&quot;)
+&lt;/pre&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to convert CSV data to geoJSON</title>
+   <link href="http://www.andrewdyck.com//how-to-convert-csv-data-to-geojson/"/>
+   <updated>2010-10-03T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/how-to-convert-csv-data-to-geojson</id>
+   <content type="html">&lt;p&gt;A few weeks ago &lt;a href=&quot;http://www.andrewdyck.com/mapping-data-on-the-web-using-mapbox-openlayers/&quot;&gt;I posted about some things I’ve been reading&lt;/a&gt; on how to incorporate data on a map for the web using open-source OpenLayers. While other work has kept me away from making substantial progess on the maps, I have made some steps towards converting data into geoJSON format for use in these types of web applications. The solution I have isn’t exactly elegant since it is very specific one dataset but it works and should be adaptable.&lt;/p&gt;
+
+&lt;p&gt;I’m new to using &lt;a href=&quot;http://github.com&quot;&gt;github&lt;/a&gt; for code but I have posted the code for this script up there to share with whoever can make something useful of it. You can &lt;a href=&quot;http://github.com/andrewjdyck/csvToGeoJSON/blob/master//csvToGeoJSON.py&quot;&gt;download the Python script&lt;/a&gt; to convert CSV (with lat/long coordinates) to geoJSON or &lt;a href=&quot;https://andrewjdyck@github.com/andrewjdyck/csvToGeoJSON.git&quot;&gt;clone the .git repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Below I post the body of the Python script for comments if anyone should pass this way with suggestions for improvements.&lt;/p&gt;
+
+&lt;pre class=&quot;brush: python; title: ; notranslate&quot; title=&quot;&quot;&gt;import csv
+
+# Read in raw data from csv
+rawData = csv.reader(open(&#39;sample.csv&#39;, &#39;rb&#39;), dialect=&#39;excel&#39;)
+
+# the template. where data from the csv will be formatted to geojson
+template = \
+    &#39;&#39;&#39; \
+    { &quot;type&quot; : &quot;Feature&quot;,
+        &quot;id&quot; : %s,
+            &quot;geometry&quot; : {
+                &quot;type&quot; : &quot;Point&quot;,
+                &quot;coordinates&quot; : [&quot;%s&quot;,&quot;%s&quot;]},
+        &quot;properties&quot; : { &quot;name&quot; : &quot;%s&quot;, &quot;value&quot; : &quot;%s&quot;}
+        },
+    &#39;&#39;&#39;
+
+# the head of the geojson file
+output = \
+    &#39;&#39;&#39; \
+{ &quot;type&quot; : &quot;Feature Collection&quot;,
+    {&quot;features&quot; : [
+    &#39;&#39;&#39;
+
+# loop through the csv by row skipping the first
+iter = 0
+for row in rawData:
+    iter += 1
+    if iter &amp;gt;= 2:
+        id = row[0]
+        lat = row[1]
+        lon = row[2]
+        name = row[3]
+        pop = row[4]
+        output += template % (row[0], row[2], row[1], row[3], row[4])
+        
+# the tail of the geojson file
+output += \
+    &#39;&#39;&#39; \
+    ]
+}
+    &#39;&#39;&#39;
+    
+# opens an geoJSON file to write the output to
+outFileHandle = open(&quot;output.geojson&quot;, &quot;w&quot;)
+outFileHandle.write(output)
+outFileHandle.close()
+&lt;/pre&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Generate monte-carlo simulated data for simultaneous equations</title>
+   <link href="http://www.andrewdyck.com//generate-monte-carlo-simulated-data-for-simultaneous-equations/"/>
+   <updated>2010-10-01T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/generate-monte-carlo-simulated-data-for-simultaneous-equations</id>
+   <content type="html">&lt;p&gt;There are many sources around the net describing how to use two-stage least squares (2sls) to estimate a system of simultaneous equations. I won’t get into the nitty-gritty of simultaneous equations here because there is plenty out there on the web. My purpose for this post is to simply show how one can create an arbitrary dataset that one can use to test the assumptions of estimators used for simultaneity problems. Exploring a known data generating process is a great way to learn about how different estimators perform under different circumstances. In my example I will use a system with two dependent variables, Y1 and Y2, and one independent variable, X1. Note that since this system has only one exogenous variable (X1) it is under-identified.&lt;/p&gt;
+
+&lt;p&gt;The procedure goes like this:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Write out the equations in your system&lt;/li&gt;
+  &lt;li&gt;Re-write the system as two equations expressed as functions of exogenous variables only&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate the variables in your software package of choice. I’ll be using Stata although this would be equally easy in R and in python you should be able to solve the systems and generate the data in the program and avoid the algebra.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Write out the system of equations:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Y1 = a0 + a1*Y2 + a2*X1 + e1&lt;br /&gt;
+Y2 = g0 + g1*Y1 + e2&lt;/p&gt;
+
+&lt;p&gt;where a0,a1,a2,g0 and g1 are parameters that we specify explicitly while e1 and e2 are error terms.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We can re-write the system of equations like this using simple substitution:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Y1 = (a0 + a1*g0 + a1*e2 + a2*x1 + e1)/(1 – a1*g1)&lt;br /&gt;
+Y2 = (g0 + g1*a0 + g1*a2*x1 + g1*e1 + e2)/(1 – g1*a1)&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The following code will produce a dataset with simultaneously determined equations. Copy and paste into Stata and hit enter.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;clear
+set obs 1000
+
+* These are the random variables
+gen x1 = rnormal(0,1)
+gen e1 = rnormal(0,1)
+gen e2 = rnormal(0,1)&amp;lt;/code&amp;gt;
+
+* These are the parameters of our equations
+* They can be any value you choose
+local a0 = 1
+local a1 = 2
+local a2 = 3
+local g0 = 4
+local g1 = 5
+
+* This generates our two dependent variables
+gen y1 = (`a0&#39; + `a1&#39;*`g0&#39; + `a1&#39;*e2 + `a2&#39;*x1 + e1)/(1-`a1&#39;*`g1&#39;)
+gen y2 = (`g0&#39; + `g1&#39;*`a0&#39; + `g1&#39;*`a2&#39;*x1 + `g1&#39;*e1 + e2)/(1-`g1&#39;*`a1&#39;)
+&lt;/pre&gt;
+
+&lt;p&gt;Done! &lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Now, since we know the data generating process (DGP) of this dataset, we should use it to test some of the assumptions of the 2SLS estimator. I’ll explore the 2SLS estimator in an upcoming post but to get you started you can try estimating the parameters using the -ivregress- command below.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;ivregress 2sls y2 (y1 = x1)
+&lt;/pre&gt;
+
+&lt;p&gt;Notice that the estimated coefficient on Y1 and intercept are 5.003 and 3.984 respectively. These are close to our input parameters so looks like the 2sls procedure works fairly well for this system. Now compare this to the results we’d find if we just used ordinary least squares (OLS).&lt;/p&gt;
+
+&lt;pre class=&quot;brush: perl; title: ; notranslate&quot; title=&quot;&quot;&gt;regress y2 y1
+&lt;/pre&gt;
+
+&lt;p&gt;This time we get an estimate for the coefficient on Y1 and intercept of 3.82 and 2.79 respectively. Not good, especially considering that Stata is reporting both of these estimates to be statistically significant.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Upgrade Stata on Ubuntu to avoid memory issues</title>
+   <link href="http://www.andrewdyck.com//upgrade-stata-on-ubuntu-to-avoid-memory-issues/"/>
+   <updated>2010-09-10T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/upgrade-stata-on-ubuntu-to-avoid-memory-issues</id>
+   <content type="html">&lt;p&gt;I use Stata 11 MP 64-bit on my computer at work which runs Windows 7. On this machine it runs spectacularly well, however, I have had some trouble running Stata on my laptop which runs on Ubuntu Linux (Lucid 10.04). Below is a description of the problem and the (very easy) solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The problem&lt;/strong&gt;&lt;br /&gt;
+I noticed that when I ran my Stata scripts on Ubuntu, random characters would be added to the data (especially string data) when running the &lt;code&gt;reshape&lt;/code&gt; command. For example, I would load some data:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;
+insheet using &quot;/home/data/sample.csv&quot;, clear comma&amp;lt;br /&amp;gt;
+tabulate string_variable&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;producing the output:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;
+string_vari |&amp;lt;br /&amp;gt;
+       able |      Freq.     Percent        Cum.&amp;lt;br /&amp;gt;
+------------+-----------------------------------&amp;lt;br /&amp;gt;
+          A |        500       50.00       50.00&amp;lt;br /&amp;gt;
+          B |        500       50.00      100.00&amp;lt;br /&amp;gt;
+------------+-----------------------------------&amp;lt;br /&amp;gt;
+      Total |      1,000      100.00&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then I reshape the data in some manner and tabulate once more and find that &lt;code&gt;string_variable&lt;/code&gt; has some new additions.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;
+string_vari |&amp;lt;br /&amp;gt;
+       able |      Freq.     Percent        Cum.&amp;lt;br /&amp;gt;
+------------+-----------------------------------&amp;lt;br /&amp;gt;
+          A |        498       49.80       49.80&amp;lt;br /&amp;gt;
+          B |        497       49.70       99.50&amp;lt;br /&amp;gt;
+       ôèA |           2        0.20        99.70&amp;lt;br /&amp;gt;
+      ñBúõ |           3        0.30      100.00&amp;lt;br /&amp;gt;
+------------+-----------------------------------&amp;lt;br /&amp;gt;
+      Total |      1,000      100.00&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Obviously it is a problem when random characters are being thrown into your data, especially if this is happening on a variable you use to index a &lt;code&gt;reshape&lt;/code&gt; of the dataset. Now, on to how it’s fixed.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The solution&lt;/strong&gt;&lt;br /&gt;
+I spent a great deal of time checking and re-checking my code because I believed that this must be something wrong with what I’m doing. After several hours of debugging and web searches the best I came up with is from &lt;a href=&quot;http://www.stata.com/statalist/archive/2008-12/msg00454.html&quot;&gt;this thread on statalist&lt;/a&gt; that suggested to me that maybe Stata thought that my license was invalid. I contacted Stata tech support to ask if there was a problem with my license and they told me this was NOT the case. Rather, a known bug with Ubuntu 10.04 due to the behavior of a low-level call in a library in this distribution of Linux caused data in Stata’s memory to become corrupted. Since it is a known bug, Stata issued a patch in Stata 11.1 and all that I needed to do is update the software. To do this first save your dataset and do-files if you’re working on something and then enter:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;
+update query&amp;lt;br /&amp;gt;
+update executable, force&amp;lt;br /&amp;gt;
+update swap&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;When Stata restarts enter:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;
+update ado, force&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you should be on your way. If problems continue you’ll likely need to contact Stata tech support for more info but this fixed it for me.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Create bibtex from a list of text references</title>
+   <link href="http://www.andrewdyck.com//create-bibtex-from-a-list-of-text-references/"/>
+   <updated>2010-09-01T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/create-bibtex-from-a-list-of-text-references</id>
+   <content type="html">&lt;p&gt;Some prefer to manually cite and reference documents that they work on. I am not one of those people. This method, especially when working collaboratively, often results in repeating the same double-check for references and style formatting over and over and…..&lt;/p&gt;
+
+&lt;p&gt;I much prefer to use a reference manager like &lt;a href=&quot;http://www.zotero.org/&quot;&gt;Zotero&lt;/a&gt; which makes it unbelievably easy to get your references into. Most times, you can just drop a PDF in and then find the reference data based on info in the PDF. But, more about Zotero in a later post perhaps. For now, what do you do when you receive a huge list of references in APA/MLA/etc. format and want to add them to your reference manager? &lt;/p&gt;
+
+&lt;p&gt;For this task I’ve used &lt;a href=&quot;http://www.snowelm.com/~t/doc/tips/makebib.en.html&quot;&gt;a tool from Makino Takaki&lt;/a&gt; fairly successfully a few times now to convert a list of text references to BibTeX and then import into Zotero. It’s not foolproof and you’ll have to double-check in the import but it’s a start. &lt;/p&gt;
+
+&lt;p&gt;I’m hoping that someone with more time available than myself will take his source code and tweak it to improve this tool.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Getting javascript to run in a WordPress blog entry</title>
+   <link href="http://www.andrewdyck.com//getting-javascript-to-run-in-a-wordpress-blog-entry/"/>
+   <updated>2010-08-28T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/getting-javascript-to-run-in-a-wordpress-blog-entry</id>
+   <content type="html">&lt;p&gt;It’s not as easy as it looks to get javascript to run from inside a WordPress post. &lt;a href=&quot;http://www.andrewdyck.com/mapping-data-on-the-web-using-mapbox-openlayers/&quot;&gt;For a recent post&lt;/a&gt;, I wanted to run a one-off javascript so I didn’t want to change the header.php file in my theme. Instead I found &lt;a href=&quot;http://codex.wordpress.org/Using_Javascript#Javascript_in_Posts&quot;&gt;this info on the WordPress codex&lt;/a&gt; on how to call javascript from inside the &amp;lt;body&amp;gt; tags. &lt;/p&gt;
+
+&lt;p&gt;Also the javascript that I was originally working with used&lt;/p&gt;
+
+&lt;pre class=&quot;brush: xml; title: ; notranslate&quot; title=&quot;&quot;&gt;&amp;lt;body onload=&quot;init()&quot;&amp;gt;
+&lt;/pre&gt;
+
+&lt;p&gt;to start the javascript when the page loaded but this wouldn’t work from a WordPress blog entry. So I had to change my javascript from:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: jscript; title: ; notranslate&quot; title=&quot;&quot;&gt;function init() {
+something();
+goes();
+here();
+}
+&lt;/pre&gt;
+
+&lt;p&gt;to:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: jscript; title: ; notranslate&quot; title=&quot;&quot;&gt;window.onload = function init() {
+something();
+goes();
+here();
+}
+&lt;/pre&gt;
+
+&lt;p&gt;and then I call the init() function in my blog post using:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: xml; title: ; notranslate&quot; title=&quot;&quot;&gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+init();
+&amp;lt;/script&amp;gt;
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;*Important*&lt;/strong&gt;&lt;br /&gt;
+I can to change my WordPress user settings to disable the visual text editor since it was adding/stripping various parts of the html and breaking it.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Mapping data on the web using Mapbox &#038; OpenLayers</title>
+   <link href="http://www.andrewdyck.com//mapping-data-on-the-web-using-mapbox-openlayers/"/>
+   <updated>2010-08-26T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/mapping-data-on-the-web-using-mapbox-openlayers</id>
+   <content type="html">&lt;p&gt;This post is mostly a note to myself covering some of the research I’ve been doing over the past day with mapping data for the web. I’ve found a number of really nice interactive mapping tools that I’m looking into including &lt;a href=&quot;http://mapbox.com/&quot;&gt;Mapbox&lt;/a&gt;, &lt;a href=&quot;http://openlayers.org/&quot;&gt;OpenLayers&lt;/a&gt;, &lt;a href=&quot;http://polymaps.org/&quot;&gt;Polymaps&lt;/a&gt; and &lt;a href=&quot;http://code.google.com/apis/maps/index.html&quot;&gt;Google Maps API&lt;/a&gt;. Although they look nice, I’ve been avoiding Flash based tools. Mostly because I don’t know Actionscript and also because I think html5/javascript is where technology is headed in the near future.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Background&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Over the past two years, the &lt;a href=&quot;http://feru.org/goep/&quot;&gt;Global Ocean Economics Project&lt;/a&gt; that I’ve been working for has generated/collected some interesting global data. The data is organized very simply into a longitudinal format with countries as the cross-sectional identifier. The &lt;a href=&quot;http://codeandculture.wordpress.com/2010/08/25/heads-or-tails-of-your-dta/&quot;&gt;head of this data&lt;/a&gt; would look something like this:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      Country
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      Year
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      Data
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  
+  &lt;tr&gt;
+    &lt;td&gt;
+      Canada
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      2000
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      100
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  
+  &lt;tr&gt;
+    &lt;td&gt;
+      Canada
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      2005
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      200
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  
+  &lt;tr&gt;
+    &lt;td&gt;
+      USA
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      2000
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      200
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  
+  &lt;tr&gt;
+    &lt;td&gt;
+      USA
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      2005
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      400
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;For now I’ll ignore the time element of the data and focus simply on displaying a cross-section on a global map. I’ll consider displaying time-series on the map later.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mapbox&lt;/strong&gt;&lt;br /&gt;
+This appears to be a strong contender for my final product although it appears to be geared towards an audience a little higher in terms of technical efficiency.&lt;/p&gt;
+
+&lt;p&gt;I was first tipped off to Mapbox after falling for the data displays on the new &lt;a href=&quot;http://data.worldbank.org&quot;&gt;World Bank data site&lt;/a&gt;. The map on the front page gets its message across while remaining very clean and simple. After looking at this page’s source code I saw that they called scripts from mapbox.com so I checked it out and after reading a little on that site I was able to produce this:&lt;/p&gt;
+
+&lt;div id=&quot;map&quot; style=&quot;width: 500px; height: 300px&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The code necessary to use the &lt;a href=&quot;http://mapbox.com/tileset/world-light&quot;&gt;World Light&lt;/a&gt; tileset above can be &lt;a href=&quot;http://mapbox.com/documentation/adding-tiles-your-site&quot;&gt;downloaded here&lt;/a&gt;. Also at that link are instructions for working with &lt;a href=&quot;http://www.drupal.org&quot;&gt;Drupal&lt;/a&gt; and Google Maps API.&lt;/p&gt;
+
+&lt;p&gt;The next step is to add data and make it look more like &lt;a href=&quot;http://afghanistanelectiondata.org/data&quot;&gt;this app from the National Democratic Institute&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenLayers&lt;/strong&gt;&lt;br /&gt;
+OpenLayers is an open source javascript library for making ‘slippy’ maps. I believe it is the brawn behind Mapbox, however, the documentation is a little vague for my liking and it will take some more time before I can comment on this further.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Polymaps&lt;/strong&gt;&lt;br /&gt;
+This looks to be very nice. Good set of examples and the documentation seems useful. It’s also nice to see that they are dedicated to using SVG, which will likely be very useful in the future of the web. As a user of &lt;a href=&quot;http://www.inkscape.org/&quot;&gt;Inkscape&lt;/a&gt;, I’m happy to see more support for SVG on the web. For the time being I’ve decided not to pursue Polymaps any further because I fear hitting some walls in terms of SVG being incompatible with some browsers (I’m looking at you IE6!).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Maps API&lt;/strong&gt;&lt;br /&gt;
+Why leave Google to last? Normally the GOOG would be the first place I look, but I was under the impression that Google Maps was Flash only. Turns out that I was prematurely turned off since they do have non-flash version, however, at the moment I feel that I’ve made more headway with other options so I’ll stick to that.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;future research&lt;/strong&gt;&lt;br /&gt;
+At the moment all the data files are static so there is no need to concern myself with connecting the map to an analysis engine like Stata (or R via Rapache). However, in the future I’d like to investigate how to make such interactive maps dynamic in that they take output from Stata scripts and plot them on the web. This could be done automatically to do something like:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Download monthly crime data&lt;/li&gt;
+  &lt;li&gt;Run some regressions&lt;/li&gt;
+  &lt;li&gt;Report the results on an interactive map&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Done for now&lt;/strong&gt;&lt;br /&gt;
+Like I said earlier, this is mostly a note to myself to collect some links and my progress researching this topic. But, if you happen to read all the way through this and have any comments or can suggest a new direction for me to take, please do so below.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Taxi cabs and drunk driving</title>
+   <link href="http://www.andrewdyck.com//taxi-cabs-and-drunk-driving/"/>
+   <updated>2010-06-25T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/taxi-cabs-and-drunk-driving</id>
+   <content type="html">&lt;p&gt;Okay, a follow-up to &lt;a href=&quot;http://www.andrewdyck.com/when-giving-a-friend-a-ride-to-work-is-illegal/&quot;&gt;my earlier discussion of restrictions to cab drivers&lt;/a&gt;. An interesting idea to consider is the unintended effect of keeping cab prices artificially high through limiting taxi licenses. As price of cab increases the number of people driving drunk (because it costs too much) will increase and so will the number of drunk-driving related fatalities. Lame excuse or not, high prices for taxis / public transport will affect the decision to drive drunk for some people out there.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;How much does it cost to take a cab? According to this web site, a three-mile cab ride will cost you about $8 plus tip in most major cities. After a tip, that is about $3 per mile — not too different than the implied cost per mile of driving drunk.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://www.google.com/reader/view/#stream/feed%2Fhttp%3A%2F%2Ffeeds2.feedburner.com%2Fenv-econ&quot;&gt;Google Reader (781)&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>When giving a friend a ride to work is illegal</title>
+   <link href="http://www.andrewdyck.com//when-giving-a-friend-a-ride-to-work-is-illegal/"/>
+   <updated>2010-06-20T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/when-giving-a-friend-a-ride-to-work-is-illegal</id>
+   <content type="html">&lt;p&gt;One of the strange things about law in Canada (and other places too) is that there are certain things that are legal when done for free but illegal when money changes hands. The oft-cited example is sex but also includes organs (becoming a donor is admirable but selling your kidney would land you in jail) and children (you can put your child up for adoption but selling one would be illegal as well as morally repugnant for most).&lt;/p&gt;
+
+&lt;p&gt;Eric at the Freakonomics blog points out another common action that is legal when done freely but illegal if you are paid for it. He says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“the simple act of driving passengers around is a crime — when it is done for cash.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The law requires taxi cab drivers to have a permit to transport people for money and these permits are, in most cases, heavily restricted. Is it to protect consumers from riding with sketchy folks or in shoddy vehicles or just a way to ensure nice profits for cab drivers?&lt;/p&gt;
+
+&lt;p&gt;The cab story is interesting because&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;it’s weird when you really think about it that it can be legal to get a ride with a friend to work but if you offer some money for gas  you are a criminal and;&lt;/li&gt;
+  &lt;li&gt;there are real implications for cities that suffer traffic congestion and/or inadequate public transit.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Regarding point 2, opening up restrictions to cab drivers could have many positive benefits for cities with clogged roads and poor transit options. Think about the possibilities if you had the option to cram yourself onto an over-packed bus or pay a couple dollars to flag a ride from a fellow motorist – with or without the on-duty sign on the roof.&lt;/p&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://freakonomics.blogs.nytimes.com/2009/12/11/cash-and-carry/&quot;&gt;Cash and Carry – Freakonomics Blog – NYTimes.com&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Statistical analysis Q&#038;A website</title>
+   <link href="http://www.andrewdyck.com//statistical-analysis-qa-website/"/>
+   <updated>2010-06-20T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/statistical-analysis-qa-website</id>
+   <content type="html">&lt;p&gt;Earlier &lt;a href=&quot;http://www.andrewdyck.com/stata-on-stackoverflow/&quot;&gt;I mentioned the website&lt;/a&gt; &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverflow.com&lt;/a&gt; which is a great way to get help with programming questions. Now on the website Area51 there is a proposal to create a similar site for questions related to statistical analysis. My hope is that the site would be a great place to find help answer questions like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What is the difference between standard deviation and variance?&lt;/li&gt;
+  &lt;li&gt;How do I use a data series in regression that doesn’t follow a normal distribution?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Click the link to &lt;a href=&quot;http://area51.stackexchange.com/proposals/33/statistical-analysis?referrer=cV_Bp8QrxlI1&quot;&gt;express your support for the site&lt;/a&gt; if interested.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A new source for free economic data</title>
+   <link href="http://www.andrewdyck.com//a-new-source-for-free-economic-data/"/>
+   <updated>2010-05-25T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/a-new-source-for-free-economic-data</id>
+   <content type="html">&lt;p&gt;This has the potential to be a great new source of data.&lt;/p&gt;
+
+&lt;p&gt;After an brief initial browse through I get the feeling that there is a lot here but it’s not exactly easy to search. Nonetheless, it’s movement in the right direction – open data.&lt;/p&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://dvn.iq.harvard.edu/dvn/dv/NEEO&quot;&gt;Network of European Economists Online Dataverse – IQSS Dataverse Network&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Your relationship to data and openness</title>
+   <link href="http://www.andrewdyck.com//your-relationship-to-data-and-openness/"/>
+   <updated>2010-05-23T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/your-relationship-to-data-and-openness</id>
+   <content type="html">&lt;p&gt;As an economist my view of data I use is generally some variation of “it’s &lt;em&gt;just data&lt;/em&gt;” That is, data is just one input among many that I’ll use to create something. I didn’t think too much about data other than to be frustrated when acquiring the data necessary for a given project is more than a trivial matter.&lt;/p&gt;
+
+&lt;p&gt;I’ve worked with many people in several different fields and I was, to be honest, more than a little surprised to find that many people, even academics, will go to great lengths to guard their data from use by others. At first I was merely frustrated by those who keep their data behind walls; if there is one thing that hinders progress and innovation it is when information is kept behind a wall.&lt;/p&gt;
+
+&lt;p&gt;But, I’ve come to (I hope) a better understanding of why such walls are constructed at all. Economists are intensive users of data but rarely create it so we have a difficult understanding those who do collect/create data. Those who create data, by going out and measuring the weight of various wildlife, or interviewing people about their consumption habits likely do not see themselves as &lt;em&gt;just data&lt;/em&gt; sources. Rather, they feel that they are creators of something of value and they feel a deep connection to their work. When someone comes along and asks them for data it is not &lt;em&gt;just data&lt;/em&gt; to them, it is their creation.&lt;/p&gt;
+
+&lt;p&gt;As economists, and other social scientist, we have a duty to understand the connection that some have with their data and respect that. Of course, this is not to say that I’ve changed my tune and data should be kept behind walls or encrypted on disks in building basements. &lt;a href=&quot;http://en.wikipedia.org/wiki/Public_good#Terminology.2C_and_types_of_public_goods&quot;&gt;Data wants to be free&lt;/a&gt; and it is most useful when it is freely and easily accessed. I hope that when users of data, such as myself and other social scientists, understand that the creators of data can have a deep connection to their works, we will be able to increase data openness and availability.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Open data can save Canadian taxpayers</title>
+   <link href="http://www.andrewdyck.com//open-data-can-save-canadian-taxpayers/"/>
+   <updated>2010-05-12T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/open-data-can-save-canadian-taxpayers</id>
+   <content type="html">&lt;p&gt;A very good case for open data is made by &lt;a href=&quot;http://eaves.ca/2010/04/14/case-study-open-data-and-the-public-purse/&quot;&gt;David Eaves&lt;/a&gt; on his personal website. David recounts a story where a consultant who was hired to analyze charitable giving in Toronto stumbled upon something he didn’t expect; donations to illegal charities were rampant in the Toronto area and had gone un-noticed by the Canada Revenue Agency (CRA). In this case, it is estimated that more than $3.2 billion has been saved since 2007 because the fraud was discovered by an analyst outside the government.&lt;/p&gt;
+
+&lt;p&gt;Now this is in no way an criticism of the CRA. As David writes, sometimes the person looking at the data may lack the context to identify that something was amiss in the data. This is not the fault of the analysts at the CRA in any way. No matter the skill of our public servants, there are times when things will fall through the cracks.&lt;/p&gt;
+
+&lt;p&gt;But, this is a problem with the manner in which we treat government data. The chances of these errors decreases with the number of people looking over the data. David explains how open data could be of great benefit to Canada saying that:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“[f]or many data sets, citizens should not have to make a request. Nor should we have to answer questions about why we want the data. It should be downloadable in its entirety. Not trapped behind some unhelpful search engine. When data is made readily available in machine readable formats, more eyes can look at it. This means that someone on the ground, in the community like, say, Toronto who knows the sector, is more likely to spot something a public servant in another city might not see because they dont have the right context or bandwidth. And if that public servant is not allowed to talk about the issue, then they can share this information with their fellow citizens.This is the power of open data: The power to find problems in complicated environments, and possibly even to prevent them from emerging.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well said David! In Canada we have a long way to go before we reach the level of data openness of our neighbours to the south. However, I see glimmers of hope in projects such as &lt;a href=&quot;http://data.vancouver.ca/&quot;&gt;Vancouver’s Open Data Catallogue&lt;/a&gt; and &lt;a href=&quot;http://www.toronto.ca/open/&quot;&gt;Toronto’s open data&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://eaves.ca/2010/04/14/case-study-open-data-and-the-public-purse/&quot;&gt;Case Study: How Open data saved Canada $3.2 Billion&lt;/a&gt; via [&lt;a href=&quot;http://flowingdata.com/2010/05/12/how-open-data-saved-3-2-billion/&quot;&gt;FlowingData&lt;/a&gt;]&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A few tips on using powerpoint effectively</title>
+   <link href="http://www.andrewdyck.com//a-few-tips-on-using-powerpoint-effectively/"/>
+   <updated>2010-04-30T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/a-few-tips-on-using-powerpoint-effectively</id>
+   <content type="html">&lt;p&gt;I’m not the biggest fan of powerpoint but it does seem likely that we can add this to the ‘death &amp;amp; taxes’ category – they are always going to be with us. Now, that doesn’t mean that we are doomed to suffering through hours of text crammed into bullet points. Visit &lt;a href=&quot;http://noteandpoint.com&quot;&gt;noteandpoint.com&lt;/a&gt; for some excellent examples of beautiful and effective powerpoint presentations.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;a href=&quot;http://noteandpoint.com/2010/04/ads-on-edge/&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-650&quot; title=&quot;economist-ads-on-edge-thumb&quot; src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/04/economist-ads-on-edge-thumb.jpg&quot; alt=&quot;&quot; width=&quot;300&quot; height=&quot;225&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://noteandpoint.com/2010/04/ads-on-edge/&quot;&gt; My favourite example from the site&lt;/a&gt; is by the team at &lt;a href=&quot;http://www.economist.com/&quot;&gt;The Economist&lt;/a&gt;…and not just because it’s The Economist either. This deck is simple yet seems to communicate the message to me. Even without the aid of a speaker, I feel like I’ve learned a little about the importance of brand marketing through recessions. If I were in marketing this might even be a message that I would care about. For more tips on how to stifle the yawns at your next presentation you may want to try some of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2007/01/really_bad_powe.html&quot;&gt;Discussion (somewhat lengthy) of really bad powerpoint presentations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2008/10/nine-steps-to-p.html&quot;&gt;Nine steps to creating your own powerpoint magic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://noteandpoint.com/2010/02/principles-of-powerpoint-design-working-with-layout-grids/&quot;&gt;How to use grids to design powerpoint slides&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=ORxFwBR4smE&amp;amp;feature=player_embedded&quot;&gt;Terrible powerpoints in stand-up comedy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.nytimes.com/2010/04/27/world/27powerpoint.html?ref=technology&quot;&gt;New York Times&lt;/a&gt; via &lt;a href=&quot;http://flowingdata.com/2010/04/27/discuss-powerpoint-is-the-enemy/&quot;&gt;Flowingdata.com&lt;/a&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The beauty of mathematics in nature expressed in video</title>
+   <link href="http://www.andrewdyck.com//the-beauty-of-mathematics-in-nature-expressed-in-video/"/>
+   <updated>2010-04-28T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/the-beauty-of-mathematics-in-nature-expressed-in-video</id>
+   <content type="html">&lt;p&gt;Through the design blog &lt;a href=&quot;http://infosthetics.com/&quot;&gt;information aesthetics&lt;/a&gt;, I stumbled upon an excellent video posted on YouTube by &lt;a href=&quot;http://www.etereaestudios.com/index.html&quot;&gt;Etérea studios&lt;/a&gt;. The video shows numbers and math in nature like &lt;a href=&quot;http://en.wikipedia.org/wiki/Fibonacci_number&quot;&gt;Fibonocci numbers&lt;/a&gt; and the &lt;a href=&quot;http://en.wikipedia.org/wiki/Golden_ratio&quot;&gt;golden ratio&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Open data from the World Bank</title>
+   <link href="http://www.andrewdyck.com//open-data-from-the-world-bank/"/>
+   <updated>2010-04-20T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/open-data-from-the-world-bank</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/04/globe-europe.jpg&quot;&gt;&lt;img class=&quot;alignleft size-medium wp-image-642&quot; title=&quot;globe-europe&quot; src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/04/globe-europe-300x299.jpg&quot; alt=&quot;&quot; width=&quot;180&quot; height=&quot;179&quot; /&gt;&lt;/a&gt;Today the World Bank opened up its large repository of international data for everyone. According to the World Bank, they have opened up more than 2,000 indicators to be downloaded in various formats including Excel, CSV, XML, and SDMX. Among the databases currently available are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;World Development Indicators&lt;/li&gt;
+  &lt;li&gt;African Development Indicators&lt;/li&gt;
+  &lt;li&gt;Education Statistics&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Additionally, the World Bank reports that a public API will be available for developers to use the data in web applications. It looks like the API might be available for some of the databases already but haven’t really looked into it.&lt;/p&gt;
+
+&lt;p&gt;Hopefully this is part of a trend in transparency that will continue in many other public organizations. I hope that the future brings strength to the data openness movement in Canada in particular.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[Data&lt;/td&gt;
+      &lt;td&gt;The World Bank]&lt;a href=&quot;http://data.worldbank.org/&quot;&gt;2&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Google finally lifts censorship in China</title>
+   <link href="http://www.andrewdyck.com//google-finally-lifts-censorship-in-china/"/>
+   <updated>2010-03-22T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/google-finally-lifts-censorship-in-china</id>
+   <content type="html">&lt;p&gt;To be honest, I’m surprised that they actually &lt;a href=&quot;http://googleblog.blogspot.com/2010/01/new-approach-to-china.html&quot; target=&quot;_blank&quot;&gt;followed through&lt;/a&gt; on their commitment to stop censoring the web in China. However, it looks like a positive move for free speech on the net.&lt;/p&gt;
+
+&lt;p&gt;Google has also setup&lt;a href=&quot;http://www.google.com/prc/report.html#hl=en&quot; target=&quot;_blank&quot;&gt; this webpage&lt;/a&gt; to track the status of Google services blocked in China. In a few days time I wouldn’t be surprised to see that all services are blocked but who knows what the Chinese government will end up doing.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Record sales for the motion picture industry despite piracy</title>
+   <link href="http://www.andrewdyck.com//record-sales-for-the-motion-picture-industry-despite-piracy/"/>
+   <updated>2010-03-18T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/record-sales-for-the-motion-picture-industry-despite-piracy</id>
+   <content type="html">&lt;p&gt;Really interesting quote here from &lt;a href=&quot;http://www.mpaa.org/&quot;&gt;Motion Picture Association of America&lt;/a&gt; (MPAA) Chairman Dan Glickman.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;…What a year! As John said, a 10% lift for the box office here at home…a 30% jump globally since 2005. Reversing a two-year trend, we have more people going to the movies…and more folks going more often…with a hard-core of movie fans—the 10% who go once or more a month—accounting for half of all ticket sales.(&lt;a href=&quot;http://www.mpaa.org/ShowestSpeech2010.pdf&quot; target=&quot;_blank&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Indeed, the 3D hit Avatar broke the record for box office sales this year. It appears that the movie industry is doing quite well. I find this strange information to parse with &lt;a href=&quot;http://www.itif.org/files/2009-12-15.DigitalPiracy.pdf&quot; target=&quot;_blank&quot;&gt;another document linked to&lt;/a&gt; from the MPAA website that says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The rise of broadband Internet access and cheap storage, along with the growth of digital content, has enabled digital piracy to fourish around the world….These practices threaten not only the robust production of digital content in the future, but U.S. jobs in the present.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Perhaps it’s time for even the most opposed to file-sharing, such as the MPAA to accept that the internet has not and will not destroy the movie industry. Perhaps it’s even possible that file-sharing could even be &lt;a href=&quot;http://www.andrewdyck.com/illegal-music-downloaders-support-the-music-industry-more-than-paying-customers/&quot;&gt;beneficial for content creators&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;via: [ &lt;a href=&quot;http://arstechnica.com/tech-policy/news/2010/03/piracy-sounds-too-sexy-say-rightsholders.ars&quot; target=&quot;_blank&quot;&gt;Ars Technica&lt;/a&gt; ]&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Windows licensing is a hurdle to competition with up-and-comer Ubuntu Linux</title>
+   <link href="http://www.andrewdyck.com//windows-licensing-is-a-hurdle-to-competition-with-up-and-comer-ubuntu-linux/"/>
+   <updated>2010-03-16T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/windows-licensing-is-a-hurdle-to-competition-with-up-and-comer-ubuntu-linux</id>
+   <content type="html">&lt;p&gt;Kwanghui Lim of Core Economics notes in a recent blog post that:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Ironically, it is now easier to download and install linux than it is to install Windows 7.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The quote comes from the author’s experience installing the new Windows 7 operating system. I had the pleasure of trying out the beta release of Windows 7 a few months back and it was relatively easy doing a clean install. But the difficulty Kwanghui has is completely understandable and, I believe, stems from Microsoft’s poor implementation of a price-discrimination strategy in marketing their product. The term price-discrimination sounds bad but it’s just economic-speak for selling the same good to different people at different prices. See wikipedia for a little more information about how price-discrimination works.&lt;/p&gt;
+
+&lt;p&gt;Microsoft’s strategy to maximize profit is to sell different versions of their operating system, which do pretty much the same thing, at different prices to different people. ie. people who consider themselves a basic user will likely go for Windows Home Basic and pay the base price, while more experienced users who want all the bells and whistles will buy Ultimate and pay the ultimate price. With previous versions of windows (Windows XP) this was an excellent strategy but it’s starting to fall apart and to explain why I’ll get back to the post from Core Economics.&lt;/p&gt;
+
+&lt;p&gt;Linux is, in general, considered to be a tool for geeks. Geeks who know how what a command line is and how to use it. But this generality is not so true as it once was. Indeed, I have found it to be quite easy to install Ubuntu Linux on many computers. And, when I compare the simplicity of downloading a free CD of Ubuntu and following the graphical install process to choosing my preferred flavour of Windows, then choosing whether it is best to upgrade or do a clean install and what that means for my computer. I haven’t even discussed the difficulty some have experienced with authenticating legit versions of Windows.&lt;/p&gt;
+
+&lt;p&gt;Yes, I must admit that there is still a, steep at times, learning curve with Linux and that there are also many distributions of the operating system to choose from. However, I argue that the popularity of Ubuntu means that there really is only one choice for the vast majority of folks trying out Linux. Not to mention that the increasing popularity and use of unix-based Macintosh OSX means that many people are gaining experience using a Linux-like computer.&lt;/p&gt;
+
+&lt;p&gt;With every new version of Ubuntu that is released, Linux is becoming more and more user-friendly while the profit strategy of Windows seems to be forcing users to jump through hoops to use software they pay dearly for. Indeed, everything is pointing to the fact that the barriers to people adopting a Linux operating system are slowly eroding.&lt;/p&gt;
+
+&lt;p&gt;I’m not ready to dance on the grave of Windows just yet. I, for one, think the profit motive in a company like Microsoft, often translates to a higher quality product than open source can produce. However, Microsoft really needs to get it’s marketing strategy in order if it’s going to compete with Linux or even Chrome OS in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://economics.com.au/?p=4712&quot;&gt;Why Microsoft Doesn’t Understand Win7 Upgrades&lt;/a&gt; via [ &lt;a href=&quot;http://economics.com.au/&quot;&gt;Core Economics&lt;/a&gt; ].&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Happy birthday Pi!</title>
+   <link href="http://www.andrewdyck.com//happy-birthday-pi/"/>
+   <updated>2010-03-14T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/happy-birthday-pi</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://xkcd.com/10/&quot;&gt;&lt;img class=&quot;alignleft size-medium wp-image-594&quot; title=&quot;pi&quot; src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/03/pi-300x157.jpg&quot; alt=&quot;&quot; width=&quot;300&quot; height=&quot;157&quot; /&gt;&lt;/a&gt;Okay, so it’s not exactly the the birthday of my second favourite transcendental number*, but today is a&lt;a href=&quot;http://en.wikipedia.org/wiki/Pi_Day&quot; target=&quot;_blank&quot;&gt; celebration&lt;/a&gt; of the number represented by pi and our attempts to approximate it.&lt;/p&gt;
+
+&lt;p&gt;I must admit to being fascinated by this number … how can a fundamental constant of nature be irrational?&lt;/p&gt;
+
+&lt;p&gt;*I have to say that I’m partial to the &lt;a href=&quot;http://en.wikipedia.org/wiki/Number_e&quot; target=&quot;_blank&quot;&gt;number e&lt;/a&gt;, which helped to greatly simplify equations we were forced to tackle during my university days.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Visualizing censorship in China</title>
+   <link href="http://www.andrewdyck.com//visualizing-censorship-in-china/"/>
+   <updated>2010-03-09T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/visualizing-censorship-in-china</id>
+   <content type="html">&lt;p&gt;This graphic from &lt;a href=&quot;http://www.labnol.org/internet/sites-blocked-in-china/12450/&quot; target=&quot;_blank&quot;&gt;digital inspiration&lt;/a&gt; provides a stunning picture for a westerner like myself what it might be like to surf the web in China.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;a href=&quot;http://www.labnol.org/internet/sites-blocked-in-china/12450/&quot;&gt;&lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/01/censored-keywords-china.png&quot; alt=&quot;Chinese government censorship infographic&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;To be honest, I always imagined that most of the censorship in China revolved around specific topics like the Tiananmen Square massacre. I was somewhat surprised to find that sites blocked include Wikipedia, CBC, New York Times, etc. and that words as broad as “independence” and “democracy” are filtered from search results. This infographic really makes me appreciate the relative freedom that we Canadians enjoy on the web.&lt;/p&gt;
+
+&lt;p&gt;via: &lt;a href=&quot;http://www.labnol.org/internet/sites-blocked-in-china/12450/&quot;&gt;Websites and Words That Are Blocked in China&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>European subsidies pay for illegal fishing off the African coast</title>
+   <link href="http://www.andrewdyck.com//european-subsidies-pay-for-illegal-fishing-off-the-african-coast/"/>
+   <updated>2010-03-06T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/european-subsidies-pay-for-illegal-fishing-off-the-african-coast</id>
+   <content type="html">&lt;p&gt;It’s not too surprising that the Alakrana, a Spanish tuna fishing boat subsidized with € 4.3 million ($5.8 million USD), has caught illegally fishing off the coast of Somalia. For me, what is more interesting is that there seems to be some meat to the theory that there is a link between Somali piracy and fishing. It is thought that international vessels took advantage of the political turmoil in Somalia by aggressively fishing in Somali waters and depleting that country’s fishery resources. Somali fishermen, who now must deal with depleted fisheries, struggle to make a decent living and turn to more desperate activities like piracy.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.followthemoney.eu/alakrana/&quot;&gt;Spanish tuna vessel Alakrana got 4.3 million euro in subsidies &lt;/a&gt; via &lt;a href=&quot;http://www.followthemoney.eu/&quot; target=&quot;_blank&quot;&gt;FollowTheMoney.eu&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How healthy foods can be bad for your health and your pocket book</title>
+   <link href="http://www.andrewdyck.com//how-healthy-foods-can-be-bad-for-your-health-and-your-pocket-book/"/>
+   <updated>2010-03-05T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/how-healthy-foods-can-be-bad-for-your-health-and-your-pocket-book</id>
+   <content type="html">&lt;p&gt;A reminder to check the label on foods before you buy them, &lt;strong&gt;especially&lt;/strong&gt; if they are labeled with some combination of “healthy”, “low sugar”, “low sodium”, “heart conscious”, etc. In these products companies will sometimes boost salt content to make a food with reduced fat taste better or vice-versa.&lt;/p&gt;
+
+&lt;p&gt;Of course, this is no indictment of healthy eating. It’s important to make smart decisions about our diets by choosing fresh foods free of ingredients you cannot pronounce.&lt;/p&gt;
+
+&lt;p&gt;via: &lt;a href=&quot;http://lifehacker.com/5486630/healthy-foods-not-necessarily-healthier-than-their-regular-counterparts?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+lifehacker%2Ffull+%28Lifehacker%29&amp;amp;utm_content=Google+Reader&quot;&gt;“Healthy” Foods Not Necessarily Healthier than Their Regular Counterparts – Saving Money – Lifehacker&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Government subsidies contribute to American obesity</title>
+   <link href="http://www.andrewdyck.com//government-subsidies-contribute-to-american-obesity/"/>
+   <updated>2010-03-04T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/government-subsidies-contribute-to-american-obesity</id>
+   <content type="html">&lt;p&gt;This infographic says it all.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;a href=&quot;http://www.pcrm.org/magazine/gm07autumn/health_pork.html&quot;&gt;&lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/03/pyramid.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;What the image tells us is that government subsidies are disproportionately lowering the cost of food items thought to be responsible for obesity. When you arrive at the grocery store to find that meat is cheaper than vegetables, the decision for a thrifty shopper is to consume more of foods that may lead to obesity.&lt;/p&gt;
+
+&lt;p&gt;Although the post title refers to American obesity, this is only because the data used in the image is for the USA. I’d be surprised to find the situation in Canada to be any different.&lt;/p&gt;
+
+&lt;p&gt;I’m highlighting this story here to do a little to spread this message around. It’s clear that changing distortionary agriculture subsidies would be a good step towards improving the diets of many Canadians. As consumers we aren’t doing enough to push our governments to put an end to such subsidies.&lt;/p&gt;
+
+&lt;p&gt;via: &lt;a href=&quot;http://www.pcrm.org/magazine/gm07autumn/health_pork.html&quot;&gt;PCRM » Good Medicine Magazine » Health vs. Pork: Congress Debates the Farm Bill » Autumn 2007&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This story also &lt;a href=&quot;http://consumerist.com/2010/03/why-a-salad-costs-more-than-a-big-mac.html&quot; target=&quot;_blank&quot;&gt;made the rounds recently here&lt;/a&gt;, although the image was unsourced by the author.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How an earthquake in Chile reduces welfare in Canada</title>
+   <link href="http://www.andrewdyck.com//how-an-earthquake-in-chile-reduces-welfare-in-canada/"/>
+   <updated>2010-03-03T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/how-an-earthquake-in-chile-reduces-welfare-in-canada</id>
+   <content type="html">&lt;p&gt;Scientists say that the recent earthquake off the coast of Chile may have permanently shifted the axis of the earth’s rotation, effectively shortening the length of each day by 1.26*10&lt;sup&gt;-6&lt;/sup&gt; seconds. That’s about one millionth of a second every day.&lt;/p&gt;
+
+&lt;div id=&quot;attachment_534&quot; style=&quot;width: 209px&quot; class=&quot;wp-caption alignleft&quot;&gt;
+  &lt;a href=&quot;http://www.flickr.com/photos/27678171@N00/81724386&quot;&gt;&lt;img class=&quot;size-medium wp-image-534  &quot; title=&quot;Torre de San Lorenzo&quot; src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2010/03/81724386_2e8fe4c24e-199x300.jpg&quot; alt=&quot;&quot; width=&quot;199&quot; height=&quot;300&quot; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Photo by: Diegosaurius Rex
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So what does an earthquake in Chile mean for income and welfare in Canada? Let’s do some quick and dirty math for fun:&lt;/p&gt;
+
+&lt;p&gt;1.26*10&lt;sup&gt;-6&lt;/sup&gt; seconds lost each day * 365 days * 35 million Canadians = 16,096.5 seconds lost each year.&lt;/p&gt;
+
+&lt;p&gt;16,096.5 seconds lost each year / 3600 seconds per hour = 4.47 hours lost each year&lt;/p&gt;
+
+&lt;p&gt;$38,000 gdp per capita / &lt;a href=&quot;http://en.wikipedia.org/wiki/Working_time#Differences_among_countries_and_recent_trends&quot;&gt;1717 hours average work year&lt;/a&gt; = $22 per hour average Canadian hourly wage.&lt;/p&gt;
+
+&lt;p&gt;$22 * 4.5 hours = $99 lost every year&lt;/p&gt;
+
+&lt;p&gt;Finally, we can approximate the net present value (NPV) of this yearly loss into the future using an assumed average Canadian discount rate of 3%.&lt;/p&gt;
+
+&lt;p&gt;NPV = $100 / 0.03 = $3,333.33&lt;/p&gt;
+
+&lt;p&gt;So, an earthquake in Chile costs Canada $3,333. Of course, this is just a tiny drop in the bucket when compared to total Canadian GDP but it was still fun to calculate wasn’t it?[]&lt;a href=&quot;http://www.cnn.com/2010/WORLD/americas/03/02/chile.quake/index.html?eref=rss_topstories&amp;amp;utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+Top+Stories%29&amp;amp;utm_content=Google+Reader&quot;&gt;2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;via: &lt;a href=&quot;http://www.cnn.com/2010/WORLD/americas/03/02/chile.quake/index.html?eref=rss_topstories&amp;amp;utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+Top+Stories%29&amp;amp;utm_content=Google+Reader&quot;&gt;CNN.com&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Improve your performance by ditching your multi-tasking mindset</title>
+   <link href="http://www.andrewdyck.com//improve-your-performance-by-ditching-your-multi-tasking-mindset/"/>
+   <updated>2010-03-02T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/improve-your-performance-by-ditching-your-multi-tasking-mindset</id>
+   <content type="html">&lt;p&gt;Although far from conclusive evidence, &lt;a href=&quot;http://chronicle.com/article/Scholars-Turn-Their-Attention/63746/&quot; target=&quot;_blank&quot;&gt;a recent study&lt;/a&gt; picked up by the &lt;a href=&quot;http://freakonomics.blogs.nytimes.com/&quot; target=&quot;_blank&quot;&gt;Freakonomics blog&lt;/a&gt; highlights that:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“self-described multitaskers performed much worse on cognitive and memory tasks that involved distraction than did people who said they preferred to focus on single tasks.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It may seem strange since many of us have been taught to believe that the key to productivity is to do more things at the same time. Indeed, many employers even look for this as a quality in new hires.&lt;/p&gt;
+
+&lt;p&gt;The fact is that multi-tasking like chewing gum while walking is much different than writing a report and analyzing data at the same time. Gina Trapani of the&lt;a href=&quot;http://www.fastcompany.com/article/work-smart-stop-multi-tasking-and-do-one-thing-at-a-time&quot; target=&quot;_blank&quot;&gt; Work Smart blog&lt;/a&gt; says it well:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“You’re juggling. When you juggle tasks, your work suffers AND takes longer–because switching tasks costs.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Please, do what you can to spread the word of single-tasking. Enough people talking about it just might convince employers of single-tasking productivity gains….but, you might not want to do it in an interview situation just yet.&lt;/p&gt;
+
+&lt;p&gt;via: &lt;a href=&quot;http://freakonomics.blogs.nytimes.com/2010/03/02/pay-attention/&quot;&gt;Freakonomics Blog – NYTimes.com&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Random conversion of imported data to factors in R</title>
+   <link href="http://www.andrewdyck.com//random-conversion-of-imported-data-to-factors-in-r/"/>
+   <updated>2010-02-23T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/random-conversion-of-imported-data-to-factors-in-r</id>
+   <content type="html">&lt;p&gt;While getting extremely frustrated trying to import a simple dataset into R today I stumbled upon a post by &lt;a href=&quot;http://erehweb.wordpress.com/2009/05/26/r-and-data/&quot; target=&quot;_blank&quot;&gt;Erehweb&lt;/a&gt; who sarcastically dissects the difficulty of importing numeric data into R and having it automagically converted to factors saying:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Maybe when you do an uncommon operation like reading in a file, your numbers will be silently converted into factors / categorical variables. Or maybe not. Ha ha.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For all the advanced analysis packages in R you’d think that reading the data in would be important. Indeed, &lt;a href=&quot;http://erehweb.wordpress.com/2009/05/26/r-and-data/#comment-31&quot; target=&quot;_blank&quot;&gt;commenter Nina&lt;/a&gt; says it best:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[data import in R] is like that joke about boats: the worst thing you can do with them is put them in the water. The worst thing you can do with R is give it data…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I have no doubt that there is some command that will prevent R from randomly converting a variable with 150 observations to a factor with 150 levels. However, after pouring through the help files and searching the web I have yet to find it. I will update with the answer if/when I find it.&lt;/p&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://erehweb.wordpress.com/2009/05/26/r-and-data/&quot;&gt;R and data « Erehweb’s Blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Turns out the problems were caused by CSV data saved by MS Excel. The numeric fields were stored as a number with comma separators so the number 1,000,000 was stored as “1,000,000” rather than “1000000”.&lt;br /&gt;
+Although I acknowledge that, in this case, R is not as much to blame as MS Excel for saving the comma to CSV or tab delimited files, I expect a quality analysis package to be smart enough to know that I’m not importing a factor series of 150 observations with 150 levels.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Google landing page is a hub for Vancouver 2010 Olympics information</title>
+   <link href="http://www.andrewdyck.com//google-landing-page-is-a-hub-for-vancouver-2010-olympics-information/"/>
+   <updated>2010-02-15T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/google-landing-page-is-a-hub-for-vancouver-2010-olympics-information</id>
+   <content type="html">&lt;p&gt;From what I’ve seen so far, &lt;a href=&quot;http://www.google.com/intl/en_ALL/landing/games10/index.html&quot; target=&quot;_blank&quot;&gt;Google maps landing pages&lt;/a&gt; may have be the best source for Vancouver 2010 Olympic information. On the landing page you can find Olympic news, information about medal winners and national ranking by medals won, detailed venue information and more. When looking up a hockey event I’m attending this week I found the location on the map as well as the roster for each team playing.&lt;/p&gt;
+
+&lt;p&gt;You can use the embedded Olympics gadget below to search for more Vancouver 2010 information or go to the main maps landing page to customize your own gadget. Unfortunately, due to the width of the gadget the one below doesn’t include the map portion, which is one of the big features so I highly recommend &lt;a href=&quot;http://www.google.com/intl/en_ALL/landing/games10/index.html&quot; target=&quot;_blank&quot;&gt;visiting the main landing page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are also other links on the main landing page like user submitted&lt;a href=&quot;http://picasaweb.google.com/lh/WinterGames2010#&quot; target=&quot;_blank&quot;&gt; photos from Picasa&lt;/a&gt;, &lt;a href=&quot;http://www.youtube.com/ctvolympics&quot; target=&quot;_blank&quot;&gt;videos on YouTube&lt;/a&gt; and real-time search results.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>NppToR: R Syntax Highlighting, Code Folding and Code-Passing for R in Notepad++</title>
+   <link href="http://www.andrewdyck.com//npptor-r-syntax-highlighting-code-folding-and-code-passing-for-r-in-notepad-andrew-redd/"/>
+   <updated>2010-02-11T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/npptor-r-syntax-highlighting-code-folding-and-code-passing-for-r-in-notepad-andrew-redd</id>
+   <content type="html">&lt;p&gt;When I’m not using Stata for modelling I sometimes dabble with &lt;a href=&quot;http://www.r-project.org/&quot; target=&quot;_blank&quot;&gt;R.&lt;/a&gt; In general I find that this is a good environment for modeling when you may want to keep several datasets (or data.frames as they are called in R) in memory. For better or worse, Stata allows you to keep only one dataset in memory at a time. Normally I don’t find this to be restrictive but there are times when it’s nice to be able to save some result to a matrix while keeping your working dataset in memory.&lt;/p&gt;
+
+&lt;p&gt;Anyway, the purpose of this post isn’t to discuss R vs. Stata — I’ll leave that for another day. For now, I just want to mention a nice tool by &lt;a href=&quot;http://www.stat.tamu.edu/~aredd/site/?q=node/11&quot; target=&quot;_blank&quot;&gt;Andrew Redd&lt;/a&gt; who has written a program using&lt;a href=&quot;http://www.autohotkey.com/&quot; target=&quot;_blank&quot;&gt; AutoHotkey&lt;/a&gt; to link the powerful text editing program &lt;a href=&quot;http://notepad-plus.sourceforge.net/uk/site.htm&quot; target=&quot;_blank&quot;&gt;Notepad++&lt;/a&gt; to R. &lt;a href=&quot;http://www.sciviews.org/Tinn-R/&quot; target=&quot;_blank&quot;&gt;Tinn-R&lt;/a&gt; is another popular text-editor for R programming but I’ve found it simpler to stick to one text-editor for all my programming needs. Check out the link below to download Andrew’s tool for use on the Windows platform. &lt;a href=&quot;http://www.stat.tamu.edu/~aredd/files/RwithNP++.txt&quot; target=&quot;_blank&quot;&gt;Instructions to set it up are here&lt;/a&gt; if necessary.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[NppToR: R Syntax Highlighting, Code Folding and Code-Passing for R in Notepad++&lt;/td&gt;
+      &lt;td&gt;Andrew Redd]&lt;a href=&quot;http://sourceforge.net/projects/npptor/&quot;&gt;1&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Fixed the link to NppToR. Can now be found at &lt;a href=&quot;http://sourceforge.net/projects/npptor/&quot;&gt;sourceforge&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Sustainable certification authority MSC</title>
+   <link href="http://www.andrewdyck.com//sustainable-certification-authority-msc/"/>
+   <updated>2010-02-08T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/sustainable-certification-authority-msc</id>
+   <content type="html">&lt;p&gt;What’s wrong with this picture?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;span style=&quot;font-family: Verdana, sans-serif; line-height: 18px; font-size: 12px;&quot;&gt;While some B.C. rivers had strong runs of sockeye salmon last year, a crisis emerged on the Fraser last fall when only about 1 million fish returned, instead of the 10.6 million expected. That dramatic shortfall led to native, sport and commercial fishery closures and convinced Prime Minister &lt;a class=&quot;iAs&quot; style=&quot;padding-top: 0px; padding-right: 0px; padding-bottom: 0px !important; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px !important; border-left-width: 0px; border-style: initial; border-color: initial; outline-width: initial; outline-style: none; outline-color: initial; font-weight: normal !important; font-style: inherit; font-size: 12px; font-family: inherit; vertical-align: baseline; text-decoration: none !important; color: #001f5e !important; border-bottom-color: #001f5e !important; border-bottom-style: solid !important; background-color: transparent !important; margin: 0px;&quot; href=&quot;http://www.theglobeandmail.com/news/national/british-columbia/fraser-sockeye-to-be-labelled-sustainable-despite-falling-stocks/article1437794/#&quot; target=&quot;_blank&quot;&gt;Stephen Harper&lt;/a&gt; to order a judicial inquiry. That inquiry is currently being organized and expected to begin after the Olympics end.&lt;/span&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;span style=&quot;font-family: Verdana, sans-serif; line-height: 18px; font-size: 12px;&quot;&gt;….&lt;/span&gt;&lt;/p&gt;
+
+  &lt;p&gt;British Columbias sockeye fishery – including the troubled Fraser River run which is currently the focus of a judicial inquiry – is about to get international certification as a sustainable fishery.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Granted, I have my doubts that the estimate of 10 million salmon that were supposed to return last year is correct. Still, not a bright move by MSC.&lt;/p&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://www.theglobeandmail.com/news/national/british-columbia/fraser-sockeye-to-be-labelled-sustainable-despite-falling-stocks/article1437794/&quot;&gt;Fraser sockeye to be labelled sustainable despite falling stocks – The Globe and Mail&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Backup your online data with Backupify</title>
+   <link href="http://www.andrewdyck.com//backup-your-online-data-with-backupify/"/>
+   <updated>2010-02-02T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/backup-your-online-data-with-backupify</id>
+   <content type="html">&lt;p&gt;I’m a big proponent of data backups. &lt;a href=&quot;http://www.dropbox.com&quot; target=&quot;_blank&quot;&gt;Dropbox&lt;/a&gt; (&lt;a href=&quot;http://www.andrewdyck.com/using-dropbox-to-sync-your-files-across-computers/&quot; target=&quot;_self&quot;&gt;which I’ve discussed before&lt;/a&gt;) saved me countless hours of pain and work when my hard drive crashed beyond repair on my desktop at work last year. I had only been at the job for a few months at the time but I would have lost absolutely everything I had done if not for my online backups.&lt;/p&gt;
+
+&lt;p&gt;Dropbox is an application that syncs files on your hard drive over the web, essentially bridging the gap between your physical computer and ‘the cloud’. However, many have gone beyond the need for a physical hard drive entirely and choose to store their data solely on the web. For these folks, enter &lt;a href=&quot;http://www.backupify.com/&quot; target=&quot;_blank&quot;&gt;Backupify for data backups&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have Backupify running with several on-line services I use including Gmail, Google Docs, and Flickr. Now, should anything unfortunate happen with one of these services (like the dreaded Gmail lockout) I have a backup that I should be able to restore from.&lt;/p&gt;
+
+&lt;p&gt;So far I love Backupify because it gives me a little peace of mind. Although, this peace might be premature because, as far as I can tell, the method to restore from the backups isn’t completely clear for some services. However, it’s better to have a backup and work out how to restore later rather than to have no backup at all.&lt;/p&gt;
+
+&lt;p&gt;Backupify is &lt;a href=&quot;https://secure.backupify.com/signup&quot; target=&quot;_blank&quot;&gt;currently offering free accounts&lt;/a&gt; for anyone who signs up before February 15th so you can try it out without committing financially. As far as I can tell, if you sign up before February 15th, you will have a permanent free account……but don’t quote me on that.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The link between income, regulation, technology and the environment</title>
+   <link href="http://www.andrewdyck.com//the-link-between-income-regulation-technology-and-the-environment/"/>
+   <updated>2010-01-13T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/the-link-between-income-regulation-technology-and-the-environment</id>
+   <content type="html">&lt;p&gt;An interesting&lt;a href=&quot;http://www.env-econ.net/2010/01/the-environmental-kuznets-curve-seeking-empirical-regularity-and-theoretical-structure----carson-4-1-3----review-of-envir.html&quot; target=&quot;_blank&quot;&gt; post on the environmental economics website&lt;/a&gt; today. The short post (which is just the &lt;a href=&quot;http://reep.oxfordjournals.org/cgi/content/full/4/1/3&quot; target=&quot;_blank&quot;&gt;abstract from this article&lt;/a&gt;) begs the question: Is economic growth good or bad for the environment?&lt;/p&gt;
+
+&lt;p&gt;While there are many who believe that growth is the cause of many environmental ailments, there is some evidence to support the idea that rising income levels may actually be good for the environment. To see how the later works &lt;a href=&quot;http://en.wikipedia.org/wiki/Kuznets_curve#Environmental_Kuznets_Curves&quot; target=&quot;_blank&quot;&gt;look into environmental Kuznets curves&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This paper seems to suggest, however, that income is not the driver of environmental sustainability. Rather,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;More plausible explanations for the observed data revolve around good government, effective regulation, and diffusion of technological change.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;At first glace this seems plausible except that good government, effective regulation, and diffusion of technological change is highly correlated with income. In fact, I’d argue, much like &lt;a href=&quot;http://www.env-econ.net/2010/01/the-environmental-kuznets-curve-seeking-empirical-regularity-and-theoretical-structure----carson-4-1-3----review-of-envir.html?cid=6a00d83451bd4869e20120a7cec967970b#comment-6a00d83451bd4869e20120a7cec967970b&quot; target=&quot;_blank&quot;&gt;commenter Joshua Corning&lt;/a&gt;, that income could be a proxy for these three items.&lt;/p&gt;
+
+&lt;p&gt;The commenter expresses that the issues are related by saying:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The argument seems to be that there is some Green hypothetical mythical country with good government that has effective regulation and a diffusion of technological change yet somehow remains poor.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://www.env-econ.net/2010/01/the-environmental-kuznets-curve-seeking-empirical-regularity-and-theoretical-structure----carson-4-1-3----review-of-envir.html?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+env-econ+%28Environmental+Economics%29&amp;amp;utm_content=Google+Reader&quot;&gt;Environmental Economics: Richard Carson, The Environmental Kuznets Curve …, REEP, 2010&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The end for journals is closer than we think</title>
+   <link href="http://www.andrewdyck.com//the-end-for-journals-is-closer-than-we-think/"/>
+   <updated>2009-12-15T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/the-end-for-journals-is-closer-than-we-think</id>
+   <content type="html">&lt;p&gt;After reading about the aparent lunacy of Rupert Murdoch a while back, I entertained the idea that newspapers may not have to die a lonely death. In fact, I imagined that, given the last 5 – 10 years of technological change, a time when academic journals would disappear.&lt;/p&gt;
+
+&lt;p&gt;I tested out the idea that a world where the paper an article is printed on might have little to do with it’s quality, importance and impact on several of my friends. Understandably, I met a fair amount of resistance. Afterall, I wouldn’t consider myself as the salesman type when it comes to oration. But, it turns out that I’m not alone in thinking that the end for journals is near. Both the &lt;a href=&quot;http://economiclogic.blogspot.com/2009/11/journals-are-dead.html&quot; target=&quot;_blank&quot;&gt;Economic Logician&lt;/a&gt; and &lt;a href=&quot;http://blog.repec.org/2009/12/16/why-journals/&quot; target=&quot;_blank&quot;&gt;Ekkehart Schlicht of the RePEc blog&lt;/a&gt; have recently posted about this idea…..in an admittedly more convincing fashion than I would be capable.&lt;/p&gt;
+
+&lt;p&gt;Ekkehart Schlicht even goes so far as to say:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“My impression is that the existence of journals is a feature of the past. Journals will die, and this will be an improvement…”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I couldn’t agree more. My two cents regarding how the death of journal articles could be an improvement in list form is:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lag time between when research is ready for dissemination and when it is published will be cut considerably. One needn’t wait for other authors in the edition your paper is to be published in to finish themselves.&lt;/li&gt;
+  &lt;li&gt;Greater simplicity and transparency in the review process. Thousands or millions of readers can do a much better job of assessing the quality of research than three or four reviewers.&lt;/li&gt;
+  &lt;li&gt;Focus of quality of research will shift from the standing of the journal in which it appears to other measures such as the number of people citing the work. (and the downstream quality of those citations, etc.) A paper used as a citation by a Nobel laureate like Paul Krugman surely provides more information than whether or not it is published in a ‘top’ journal.&lt;/li&gt;
+  &lt;li&gt;New mediums of publication, exchange and collaboration will emerge to fill the hole left by defunct journals. It’s difficult to speculate on this one, but we humans are pretty good at adapting to change, so I have no doubt that something interesting will appear on the horizon as the sun goes down on journal articles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Any comments? How far out-of-touch am I on this one?&lt;/p&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://blog.repec.org/2009/12/16/why-journals/&quot; target=&quot;_self&quot;&gt;the RePEc Blog&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Mark Twain on majorities</title>
+   <link href="http://www.andrewdyck.com//mark-twain-on-majorities/"/>
+   <updated>2009-12-14T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/mark-twain-on-majorities</id>
+   <content type="html">&lt;p&gt;Just read a really simple but inspiring quote by American author &lt;a href=&quot;http://en.wikipedia.org/wiki/Mark_twain&quot; target=&quot;_blank&quot;&gt;Mark Twain&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Whenever you find yourself on the side of the majority, it is time to pause and reflect.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is something that we should be sure to keep in mind at all times.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The most rational discussion of climate change I have read yet</title>
+   <link href="http://www.andrewdyck.com//the-most-rational-discussion-of-climate-change-i-have-read-yet/"/>
+   <updated>2009-12-13T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/the-most-rational-discussion-of-climate-change-i-have-read-yet</id>
+   <content type="html">&lt;p&gt;Phil at the blog &lt;a href=&quot;http://www.stat.columbia.edu/~cook/movabletype/mlm/&quot; target=&quot;_blank&quot;&gt;Statistical Modeling, Causal Inference, and Social Science&lt;/a&gt; discusses a really hot topic right now with the coolest of heads you’re likely to encounter. He says that characterizing people as climate change ‘believers’, ‘deniers’, or ‘skeptics’ doesn’t do justice to the wide range of thought on the topic. Rather, Phil suggests that:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“[m]aybe we should start characterizing people by a single number, as follows. What probability do you assign to the following statement: increasing the atmospheric carbon dioxide concentration above 800 ppm will change the global average surface temperature by more than 2.5 degrees C 4.5 F?”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That is, think about how confident you are that ‘the science is in’ regarding human-induced climate change. Phil thinks of himself as about 90% certain CO2 concentration of 800ppm is trouble. He also goes on to say that people who claim to be very confident (&amp;gt;99.99% probability) are probably out to lunch. The same would be true of those who claim to be less than 10% confident that CO2 is the culprit behind global warming.&lt;/p&gt;
+
+&lt;p&gt;For me, I don’t know where my confidence is that ‘the science is settled’ on global warming. I’d be lying to say that what’s been dubbed ‘&lt;a href=&quot;http://en.wikipedia.org/wiki/Climatic_Research_Unit_e-mail_hacking_incident&quot; target=&quot;_blank&quot;&gt;climategate&lt;/a&gt;‘ hasn’t affected my confidence in climate science and science in general for that matter. There are leaps and bounds to be made in terms of transparency in this world — even in the scientific community.&lt;/p&gt;
+
+&lt;p&gt;via &lt;a href=&quot;http://www.stat.columbia.edu/~cook/movabletype/archives/2009/12/climate_skeptic.html?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+StatisticalModelingCausalInferenceAndSocialScience+%28Statistical+Modeling%2C+Causal+Inference%2C+and+Social+Science%29&amp;amp;utm_content=Google+Reader&quot;&gt;Climate skeptics, deniers, hawks, and True Believers – Statistical Modeling, Causal Inference, and Social Science&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>434</title>
+   <link href="http://www.andrewdyck.com//434/"/>
+   <updated>2009-12-08T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/434</id>
+   <content type="html">&lt;p&gt;Found this today while searching for management info on blue-fin tuna. There are some pretty spectacular shots in there. Gotta love National Geographic!&lt;/p&gt;
+
+&lt;embed src=&quot;http://channel.nationalgeographic.com/channel/videos/satellite/satelliteEmbedPlayer.swf&quot; bgcolor=&quot;#000000&quot; flashvars=&quot;videoRef=03121_10&amp;#038;autoStart=false&amp;#038;shareURL=http%3A%2F%2Fchannel%2Enationalgeographic%2Ecom%2Fchannel%2Fvideos%2Ffeeds%2Fcv%2Dseo%2FNat%2DGeo%2DWild%2FAmazing%2DMoments%2FChamber%2Dof%2DDeath%2DCatches%2DTuna%2DHaul%2D4%2Ehtml&quot; allowfullscreen=&quot;true&quot; name=&quot;flashObj&quot; width=&quot;496&quot; height=&quot;279&quot; type=&quot;application/x-shockwave-flash&quot; swliveconnect=&quot;true&quot; pluginspage=&quot;http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash&quot; /&gt;
+
+&lt;p&gt;&amp;lt;/embed&amp;gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Score one for data freedom and transparency</title>
+   <link href="http://www.andrewdyck.com//score-one-for-data-freedom-and-transparency/"/>
+   <updated>2009-12-07T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/score-one-for-data-freedom-and-transparency</id>
+   <content type="html">&lt;p&gt;Maya Sen from the&lt;a href=&quot;http://www.iq.harvard.edu/blog/sss/&quot; target=&quot;_blank&quot;&gt; Social Science Statistics blog&lt;/a&gt; points out that some municipal governments in the USA are increasing transparency by releasing municipal data on topics such as crime, restaurant inspections, among others.&lt;/p&gt;
+
+&lt;p&gt;Obviously, the movement of data out from behind the walls of our elected officials is something that I see to be very positive. Maya Sen explains why freely accessible government data is a good thing by saying:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For social scientists, having access to more data is never a bad thing. But, more importantly, perhaps having access to this otherwise mundane data will lessen our dependence on (notoriously unreliable) public opinion surveys. Instead of asking people how much they feel crime is affecting their particular neighborhood, we could measure it using the data provided by DataSF, data.gov.uk, and others. Instead of asking people how reliable or safe are their local hospitals, we&#39;ll be able to measure it using the same resources.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To be honest, I don’t know if the federal government, municipal or provincial governments are moving in the same direction as San Fransico or New York City in regards to data accessibility. In Vancouver, we do have access to a limited set of crime data through the &lt;a href=&quot;http://vancouver.ca/police/Planning/Reports.htm&quot; target=&quot;_blank&quot;&gt;Vancouver Police Department’s Planning, Research and Audit Section&lt;/a&gt;. Good works guys! Now if only the data were in a format that people could use rather than the default PDF.&lt;/p&gt;
+
+&lt;p&gt;via [ &lt;a href=&quot;http://www.iq.harvard.edu/blog/sss/archives/2009/12/i_read_with_som.shtml&quot; target=&quot;_blank&quot;&gt;Social Science Statistics Blog&lt;/a&gt; ].&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Somali pirates use markets to reduce risk and increase rewards</title>
+   <link href="http://www.andrewdyck.com//somali-pirates-use-markets-to-reduce-risk-and-increase-rewards/"/>
+   <updated>2009-12-03T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/somali-pirates-use-markets-to-reduce-risk-and-increase-rewards</id>
+   <content type="html">&lt;p&gt;Piracy is a dangerous game to play. The vessels used are often small, rickety affairs and there is increasing hostility from would-be captives. But, employment opportunities in Somalia are scarce in the war ravaged country and many people feel they have little choice than to risk their lives by ransoming the lives of those they kidnap.&lt;/p&gt;
+
+&lt;p&gt;In an interesting twist to the story, pirates have found new ways to reduce piracy-associated risks – markets. Yes, a recent story from Reuters reports that pirates are organizing markets to spread the risks and rewards of hijacking among the community. It’s strange but true, I know.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Read the full story here: [Somali sea gangs lure investors at pirate lair&lt;/td&gt;
+      &lt;td&gt;Reuters][1] [via the &lt;a href=&quot;http://freakonomics.blogs.nytimes.com/2009/12/03/community-pirating/&quot; target=&quot;_blank&quot;&gt;Freakonomics Blog&lt;/a&gt; ]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The tenuous relationship between minimum wages and obesity</title>
+   <link href="http://www.andrewdyck.com//one-minimum-wage-increase-with-a-side-of-fries-please-economix-blog-nytimes-com/"/>
+   <updated>2009-11-29T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/one-minimum-wage-increase-with-a-side-of-fries-please-economix-blog-nytimes-com</id>
+   <content type="html">&lt;p&gt;You can file this one under strange economic relationships.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;As you may know, Americans have indeed been getting more obese over the last couple of decades, with increased consumption of fast foods contributing to that enlargement. During most of that period, the inflation-adjusted federal minimum wage had been falling.&lt;/p&gt;
+
+  &lt;p&gt;A recent study by the researchers David Meltzer from the University of Chicago and Zhuo Chen from the Centers for Disease Control and Prevention now finds that low inflation-adjusted minimum wages are partly to blame for increased obesity.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For me this story inspires mixed feelings. The human being in me feels that minimum wages are something that we should use to ensure that workers have a decent standard of living. The economist in me is a skeptic and feels that there are likely other effects to minimum wage laws. Looks like the data, for the USA anyway, is suggesting that the minimum wage may at least have one unintended effect where an increase in the minimum wage could decrease obesity. Sounds great, minimum wage caused reductions in obesity could come at the cost of higher unemployment.&lt;/p&gt;
+
+&lt;p&gt;Visit the Economix Blog to read the full story: &lt;a href=&quot;http://economix.blogs.nytimes.com/2009/11/25/one-minimum-wage-increase-with-a-side-of-fries-please/&quot;&gt;One Minimum Wage Increase With a Side of Fries, Please – Economix Blog – NYTimes.com&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How not to report statistics</title>
+   <link href="http://www.andrewdyck.com//how-not-to-report-statistics/"/>
+   <updated>2009-11-27T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/how-not-to-report-statistics</id>
+   <content type="html">&lt;p style=&quot;text-align: left;&quot;&gt;
+  Nathan at the &lt;a href=&quot;http://flowingdata.com/&quot; target=&quot;_blank&quot;&gt;Flowing Data blog&lt;/a&gt; points out a very curious use of the pie chart. To be honest, I was distracted by the unnecessary use of the word &amp;#8220;Back&amp;#8221; before each of the candidates and didn&amp;#8217;t notice the bigger mistake right away.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2009/11/best-pie-chart-ever.jpg&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-402&quot; title=&quot;best-pie-chart-ever&quot; src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2009/11/best-pie-chart-ever.jpg&quot; alt=&quot;best-pie-chart-ever&quot; width=&quot;545&quot; height=&quot;408&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The way I see it, if the Romney and Huckabee backers collude Palin is up against 123% of GOP support! Her meager 70% share of support can’t compete with that.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Click to see the full post: [Fox News Makes the Best Pie Chart. Ever.&lt;/td&gt;
+      &lt;td&gt;FlowingData]&lt;a href=&quot;http://flowingdata.com/2009/11/26/fox-news-makes-the-best-pie-chart-ever/&quot;&gt;2&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Free and open data sources on the web</title>
+   <link href="http://www.andrewdyck.com//free-and-open-data-sources-on-the-web/"/>
+   <updated>2009-11-25T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/free-and-open-data-sources-on-the-web</id>
+   <content type="html">&lt;p&gt;The web is open and free…..at least for now. However, finding open sources of good quality data can be tricky at times. Michael over at the &lt;a href=&quot;http://dataspora.com/blog/&quot;&gt;Dataspora Blog&lt;/a&gt; has compiled this short list of a few sources of data on the web.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.freebase.com/&quot;&gt; Freebase&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.readwriteweb.com/archives/where_to_find_open_data_on_the.php&quot;&gt; Open Data Sites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.swivel.com/&quot;&gt; Swivel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.datamob.com/&quot;&gt; Datamob&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://numbrary.com/&quot;&gt; Numbrary&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://del.icio.us/pskomoroch/dataset&quot;&gt; Peter Skomoroch’s Delicious Data&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://infochimps.org/&quot;&gt; InfoChimps&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Not all of them are free, ‘as in beer’, but I’m a big fan of InfoChimps &lt;a href=&quot;http://www.andrewdyck.com/infochimps-centralizes-data-and-improves-market-for-datasets/&quot; target=&quot;_self&quot;&gt;as I’ve discussed before&lt;/a&gt;. I still have yet to submit any data to InfoChimps but I did notice the other day that they have added the ability to upload your dataset without having to e-mail it in, which, should increase the number of submissions they receive.&lt;/p&gt;
+
+&lt;p&gt;I’m also a fan of the idea of Freebase but haven’t really used it much yet. To be honest, it always looked cluttered to me whenever I had a few minutes to play around with it.&lt;/p&gt;
+
+&lt;p&gt;Have you used any of these data sources? Any other gems to add to the list?&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Illegal music downloaders support the music industry more than paying customers</title>
+   <link href="http://www.andrewdyck.com//illegal-music-downloaders-support-the-music-industry-more-than-paying-customers/"/>
+   <updated>2009-11-02T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/illegal-music-downloaders-support-the-music-industry-more-than-paying-customers</id>
+   <content type="html">&lt;p&gt;After &lt;a href=&quot;http://www.independent.co.uk/news/uk/crime/illegal-downloaders-spend-the-most-on-music-says-poll-1812776.html&quot;&gt;a story like this&lt;/a&gt; you know that somewhere a &lt;a href=&quot;http://en.wikipedia.org/wiki/Riaa&quot;&gt;RIAA&lt;/a&gt; official’s head exploded.&lt;/p&gt;
+
+&lt;p&gt;The story explains that a (small) sample of internet users suggest that the average music pirate spends more on music than the average non-pirate. And, if the results are correct pirates spend quite a lot more than those who do not illegally download music – 77 pounds for pirates vs. 44 pounds for those who stay legit.&lt;/p&gt;
+
+&lt;p&gt;So, how could these results be true? Well, the first thing to recognize is that the results are based on a poll of just 1,000 people and just 10% of these respondents admitted to downloading music illegally. The sample is small and it’s uncertain how forthcoming people were about the legality of their on-line activity. That said, I can think of a few other reasons to explain why illegal music downloads are beneficial to the music industry.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Downloading music reduces risk for consumers
+Can you believe that I paid more than $25 for the White Stripes Elephant album? At the time I was working a part-time job and $25 was a significant portion of my disposable income. Luckily, Elephant is a spectacular album and I have it to this day but I wouldn’t say the same for my purchase of Moby’s post-Play album, 18, which, in my opinion, was a dud. When one downloads music illegally, they aren’t stuck with a $25 coaster if they don’t like it.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Because I’m an economist I’ll express this with a simple equation below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/tex/MusicEqn1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;where Pi represents the pleasure one gets from listening to an album, CD is the price of an album, and &lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/tex/rho.png&quot; alt=&quot;&quot; /&gt; is the probability that an album purchase lets you down. &lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/tex/pi.png&quot; alt=&quot;&quot; /&gt; is decreasing in &lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/tex/rho.png&quot; alt=&quot;&quot; /&gt; so as the probability of buying a dud album goes down &lt;img src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/tex/pi.png&quot; alt=&quot;&quot; /&gt; increases and the total expected benefit of an album purchase increases as well, and for music lovers, this additional expected benefit can be risklessly spent on more music.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Music pirates are music lovers
+Although it may not cost money to download music illegally, it does take time searching for new artists and learning about what you should listen to next. All this time researching music means that pirates are more likely to discover new artists and share their discoveries with others. Furthermore, since the web loves to put ads everywhere, people who spend time looking for music on the web will eventually click some of those sponsored ads on the sidebar and wind up buying some sort of music paraphenalia.&amp;lt;/ol&amp;gt; &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Whether or not the music industry finds a way to finally bend the law in their favour, one thing is certain, the internet has changed the music industry. Consumers have gotten used to music at their fingertips when they want it and it will be difficult to change back. The age of the $25 album purchase is not coming back but what the future will be is impossible to predict. Perhaps I’ll chime in with some ideas later on.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Collapsing multiple date variables in Stata</title>
+   <link href="http://www.andrewdyck.com//collapsing-multiple-date-variables-in-stata/"/>
+   <updated>2009-10-24T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/collapsing-multiple-date-variables-in-stata</id>
+   <content type="html">&lt;p&gt;I recently spoke with a friend who was working with a large dataset of information about head injury patients they are using in a research project. I’ve always said that for every day you expect to spend in data analysis, you can expect a week in data management just to prepare your dataset for analysis. This friend of mine has been finding just that and had a question about what to do when patients in his dataset have multiple dates of injury, recorded in multiple columns. The data he had was organized so that a patient has an entry in a date variable when the first arrive at the hospital and another entry in a second date variable if upon their next hospital visit.&lt;/p&gt;
+
+&lt;p&gt;Reformatting these multiple date variables into a single date variable for analysis is fairly straight-forward in Stata and utilizes the always handy egen command. What we’ll do is make use of the fact that Stata treats dates as numbers starting at 0 = January 1, 1960 then add the variables together and make sure Stata treats missing values as zero rather than missing. I’ll be using sample data for this example but you can get it from within Stata using the code below.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;use “http://andrewdyck.com/stata/PatientInjurySampleData.dta”, clear&lt;br /&gt;
+egen AllDates = rowtotal(Date*)&lt;br /&gt;
+format AllDates %d&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now you should have a new variable, AllDates, that you can use in some sort of panel data analysis. Have fun!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Vancouver mayors get transit incentives wrong</title>
+   <link href="http://www.andrewdyck.com//vancouver-mayors-get-transit-incentives-wrong/"/>
+   <updated>2009-10-23T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/vancouver-mayors-get-transit-incentives-wrong</id>
+   <content type="html">&lt;p&gt;Transit is a very important subject in any urban area but it becomes even more important in larger or high density areas like the &lt;a href=&quot;http://en.wikipedia.org/wiki/Lower_mainland&quot; target=&quot;_blank&quot;&gt;Lower Mainland&lt;/a&gt;. Today &lt;a href=&quot;http://www.cbc.ca/canada/british-columbia/story/2009/10/23/bc-translink-gas-parking-tax-fares-hike.html&quot; target=&quot;_blank&quot;&gt;CBC reported on a decision by Vancouver mayors&lt;/a&gt; to improve revenues for Translink, the company responsible for managing transit in the lower mainland. Unfortunately, in trying to raise money for maintaining the current system they have focused simply on raising money and ignored how their decision might alter behaviour through shifting incentives.&lt;/p&gt;
+
+&lt;p&gt;The plan, as proposed by Vancouver mayors is to increase the gas tax, parking fees, and transit fees to pay for transit maintenance. It is easy to understand how the first two have the potential to both raise revenue and take pressure off city infrastructure by discouraging automobile usage. However, by increasing the cost of using public transit the mayors are actually discouraging the use public transit, which may actually increase traffic congestion.&lt;/p&gt;
+
+&lt;p&gt;Stories such as this are a reminder that whether it’s funding Translink or another policy decision, it’s important to always consider the role of economic incentives in finding the optimal solution to that problem. Additional transit funding sources which was utilized by Vancouver mayors could be to charge tolls for entering certain areas of the city by car at certain times of day or to work with ICBC in implementing an annual tax for registering a vehicle.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Follow the CFL with your google calendar or iCal</title>
+   <link href="http://www.andrewdyck.com//follow-the-cfl-with-your-google-calendar-or-ical/"/>
+   <updated>2009-10-23T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/follow-the-cfl-with-your-google-calendar-or-ical</id>
+   <content type="html">&lt;p&gt;As a Saskatchewan native, I’m a huge fan of the Roughriders and the Canadian Football League (CFL) in general. My love of football collided with my love of technology when I decided to follow CFL games using my on-line calendar. The official CFL website does offer team schedules in iCal that can be imported into Google Calendar, which I use. However, if you want to follow the entire league instead of just one team, they don’t have an option for that. So, I grabbed the full season schedule from the &lt;a href=&quot;http://cfldb.ca/schedules/&quot; target=&quot;_blank&quot;&gt;Canadian Football League Database (CFLDB)&lt;/a&gt; and added it to my calendar. It works great and now I can see all the upcoming games on my calendar.&lt;/p&gt;
+
+&lt;p&gt;I haven’t spent much more time on the CFLDB website but it looks like a nice source for information about the CFL. The owner has even converted a copy of the official rulebook from PDF to a search-friendly web format.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Stata on stackoverflow and other helpful hints</title>
+   <link href="http://www.andrewdyck.com//stata-on-stackoverflow/"/>
+   <updated>2009-10-10T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/stata-on-stackoverflow</id>
+   <content type="html">&lt;p&gt;I’ve just answered &lt;a href=&quot;http://stackoverflow.com/questions/1547085/taking-a-conditional-mean-in-stata&quot; target=&quot;_blank&quot;&gt;my first question on programming Q &amp;amp; A website stackoverflow&lt;/a&gt;. I’ve been following the statistics tag by RSS for a little while now and this is the first I’ve seen someone asking a question on the site. There is, however, quite a following on the official Stata e-mail list if one ever needs to search or ask for answers to their Stata related programming questions.&lt;/p&gt;
+
+&lt;p&gt;Periodically one can find economics related questions using the statistical package R on stackoverflow as this programming language seems to have &lt;a href=&quot;http://stackoverflow.com/questions/tagged/r&quot; target=&quot;_blank&quot;&gt;a greater following on stackoverflow&lt;/a&gt;. Although I’ve found the &lt;a href=&quot;http://www.stata.com/statalist/&quot; target=&quot;_blank&quot;&gt;Statalist&lt;/a&gt; to be quite helpful in the past I’d really like to see Stata users move to a forum such as stackoverflow with better search and where one can use RSS to follow discussion.&lt;/p&gt;
+
+&lt;h2 id=&quot;tips-for-finding-help-with-stata&quot;&gt;Tips for finding help with Stata&lt;/h2&gt;
+
+&lt;h4 id=&quot;harness-the-power-of-google&quot;&gt;Harness the power of Google&lt;/h4&gt;
+
+&lt;p&gt;But, until Stata users move to a different forum for discussion I have two tips for Stata users looking for help with programming problems. The first is to simply use the power of Google search operators to focus on statalist discussion. For example, if you’d like to browse discussion related panel data methods for dichotomous dependant variables you could try searching google using:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;site:stata.com/statalist/archive panel data probit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You can also use Google as an improvement to the default help search built into Stata by searching google. For example, if you can’t remember the commands for ordered probit estimation you could try:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;site:stata.com/help.cgi ordered probit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;create-your-own-personal-statalist-archive-with-gmail&quot;&gt;Create your own personal Statalist archive with Gmail&lt;/h4&gt;
+
+&lt;p&gt;My second tip is to follow Stata discussion using Gmail. First, subscribe to statalist using the instructions here. You’ll soon be overwhelmed with statalist e-mail in your inbox so you can use the power of Gmail to filter these messages. You can setup a filter to have all statalist e-mails skip the inbox and apply a statalist label for later browsing. You can also import the filter I’ve already setup to do this but you’ll have to enable the filter import/export feature in the labs section of Gmail settings. &lt;a href=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2009/10/StatalistFilter.xml&quot;&gt;You can download this filter here&lt;/a&gt;. When you are ready to browse through some of the recent statalist discussion in your inbox you can use the search term:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;label:StataList&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You can also add further search terms to the above if you want to drill down discussion on certain topics like panel data, logit, etc. And, the real beauty of this tip is that you can delete the topics you aren’t interested in or use superstars/labels to organize topics you think useful. You could even tweak my filter to automatically delete topics you don’t like or send ones you do to your inbox. You may also consider using the multiple inbox feature of Gmail labs, however, I’ve found this method to be distracting and prefer the simplicity of a single inbox.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Installing Stata on Ubuntu or Linux Mint</title>
+   <link href="http://www.andrewdyck.com//installing-stata-on-ubuntu-or-linux-mint/"/>
+   <updated>2009-10-10T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/installing-stata-on-ubuntu-or-linux-mint</id>
+   <content type="html">&lt;p&gt;For those like myself who have recently switched to the Linux operating system, installing programs that are not in the Ubuntu repositories can be a challenge at times. I recently installed the statistical analysis program Stata on my computer running the latest stable version of Linux Mint Gloria, which is a fork of the popular Ubuntu Linux distribution. But, more about my choice of Linux distro later. On to installing Stata on linux.&lt;/p&gt;
+
+&lt;pre class=&quot;brush: bash; title: ; notranslate&quot; title=&quot;&quot;&gt;sudo mkdir /usr/local/stata10
+cd /usr/local/stata10
+sh /media/cdrom/install
+&lt;/pre&gt;
+
+&lt;p&gt;Next, follow the prompts to install the program. The Stata install CD includes versions for several operating system so just pay attention. If you want to run the GUI version of Stata just like on windows then you’ll want to select the dynamically linked version in step three of the install.&lt;/p&gt;
+
+&lt;p&gt;After the files have been copied run the license install program by typing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo ./stinit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If there is an error you may need to change the permissions on the stata10 folder before starting the license program. Try typing:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: bash; title: ; notranslate&quot; title=&quot;&quot;&gt;sudo chmod -R 755 /usr/local/stata10&lt;/pre&gt;
+
+&lt;p&gt;Enter the serial number, code, and authorization key and you’ll be prompted to enter some info that will appear when Stata starts. I chose to enter my name on the first line and my job title on the second. Now you should be able to run Stata from the command line by typing:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: bash; title: ; notranslate&quot; title=&quot;&quot;&gt;./stata&lt;/pre&gt;
+
+&lt;p&gt;or you can run the GUI version of Stata by typing:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: bash; title: ; notranslate&quot; title=&quot;&quot;&gt;./xstata&lt;/pre&gt;
+
+&lt;p&gt;At first try I was able to run Stata from the command line but when I tried to run xstata I got the following error:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: bash; title: ; notranslate&quot; title=&quot;&quot;&gt;./xstata: error while loading shared libraries: libtiff.so.3: cannot open shared object file: No such file or directory&lt;/pre&gt;
+
+&lt;p&gt;After consulting a document on the Stata website, I was still confused about what to do but after further search I was able to run xstata by running the following commands. If you are running a recent version of Ubuntu such as 9.04 – 10.04 the following should work:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: bash; title: ; notranslate&quot; title=&quot;&quot;&gt;sudo ln -s /usr/lib/libtiff.so.4 /usr/lib/libtiff.so.3&lt;/pre&gt;
+
+&lt;p&gt;After upgrading to the latest version of Ubuntu, Maverick Meerkat (10.10), a new version of libtiff is included so the following softlink should be used instead of the line above.&lt;/p&gt;
+
+&lt;pre class=&quot;brush: bash; title: ; notranslate&quot; title=&quot;&quot;&gt;sudo ln -s /usr/lib/libtiff.so.4.3.3 /usr/lib/libtiff.so.3&lt;/pre&gt;
+
+&lt;p&gt;Mostly, this post serves as a reminder to myself how to re-install if I have to but if you find this useful, leave me a comment below. Good luck!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>InfoChimps centralizes data and improves market for datasets</title>
+   <link href="http://www.andrewdyck.com//infochimps-centralizes-data-and-improves-market-for-datasets/"/>
+   <updated>2009-09-30T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/infochimps-centralizes-data-and-improves-market-for-datasets</id>
+   <content type="html">&lt;p&gt;Related to my &lt;a href=&quot;http://www.andrewdyck.com/2009/the-economics-of-scientific-collaboration/&quot; target=&quot;_blank&quot;&gt;recent post on scientific collaboration&lt;/a&gt;, I’ve finally been invited to join &lt;a href=&quot;http://infochimps.org/&quot; target=&quot;_blank&quot;&gt;InfoChimps.org&lt;/a&gt;, a website and aggregates and searches datasets from users.&lt;/p&gt;
+
+&lt;p&gt;The site is very young and so far I’ve found very few datasets on concerning fisheries economics save for &lt;a href=&quot;http://infochimps.org/datasets/fisheries-quantity-and-value-of-domestic-catch:-1960-to-2005&quot; target=&quot;_blank&quot;&gt;U.S.A. catch and value data for 1960-2005&lt;/a&gt;. For this particular dataset, it is available for download for free in various formats (including CSV!). Infochimps seems to do a pretty good job of requiring people submitting datasets to cite their sources and describe the data. A snippet of the data is included without having to download so you can get an idea of what you’ll get.&lt;/p&gt;
+
+&lt;p&gt;From the point of view of a researcher it’s good to see movements like this that could expedite research by decreasing wait times for data. (ie. I’m waiting on a dataset from the OECD to be delivered for two weeks now and I’m told it could be up to 6 weeks).&lt;/p&gt;
+
+&lt;p&gt;From the point of view of an economist this is exciting news because the folks at Infochimps are attempting to consolidate a market for data and barely exists right now. There must be Terabytes of data sitting on the computers of researchers who would share (perhaps for a fee) with others but no one has asked. Likewise, there are plenty of researchers who need data (and may be willing to pay rather than collect themselves) but don’t know where or who to ask.&lt;/p&gt;
+
+&lt;p&gt;For me, I hope data aggregation services like this become the norm in the near future.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The economics of scientific collaboration</title>
+   <link href="http://www.andrewdyck.com//the-economics-of-scientific-collaboration/"/>
+   <updated>2009-09-29T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/the-economics-of-scientific-collaboration</id>
+   <content type="html">&lt;p&gt;Did you think that academics have nothing to gain from trade? On his blog, Michael Neilson has posted a (somewhat lengthy)&lt;a href=&quot;http://michaelnielsen.org/blog/the-future-of-science-2/&quot; target=&quot;_blank&quot;&gt; discussion about the future of science&lt;/a&gt;. In it there is a very interesting section about the economics of scientific collaboration where he describes the following story of fictional Alice and Bob:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Alice walks into a shoestore, with some money. Alice wants shoes more than she wants to keep her money, but Bob the shoestore owner wants the money more than he wants the shoes. As a result, Bob hands over the shoes, Alice hands over the money, and everyone walks away happier after just ten minutes. This rapid transaction takes place because there is a trust infrastructure of laws and enforcement in place that ensures that if either party cheats, they are likely to be caught and punished.&lt;/p&gt;
+
+  &lt;p&gt;If shoestores operated like scientists trading ideas, first Alice and Bob would need to get to know one another, maybe go for a few beers in a nearby bar. Only then would Alice finally say “you know, I’m looking for some shoes”. After a pause, and a few more beers, Bob would say “You know what, I just happen to have some shoes I’m looking to sell”. Every working scientist recognizes this dance; I know scientists who worry less about selling their house than they do about exchanging scientific information.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ah yes, &lt;a href=&quot;http://en.wikipedia.org/wiki/David_Ricardo&quot; target=&quot;_blank&quot;&gt;Ricardo’s&lt;/a&gt; influence continues to be important. Perhaps even in ways he didn’t have in mind when developing his theory of &lt;a href=&quot;http://en.wikipedia.org/wiki/Comparative_advantage&quot; target=&quot;_blank&quot;&gt;comparative advantage&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Website&#8217;s new look</title>
+   <link href="http://www.andrewdyck.com//websites-new-look/"/>
+   <updated>2009-09-28T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/websites-new-look</id>
+   <content type="html">&lt;p&gt;After a short affair with &lt;a href=&quot;http://drupal.org&quot; target=&quot;_blank&quot;&gt;Drupal &lt;/a&gt;the website is back on &lt;a href=&quot;http://www.wordpress.org&quot; target=&quot;_blank&quot;&gt;WordPress&lt;/a&gt;. Drupal is a very powerful content management system but takes A LOT of work to maintain and customize, whereas WordPress just works. If you are interested in experimenting with WordPress for you site you can follow&lt;a href=&quot;http://lifehacker.com/214455/hack-attack-set-up-and-host-a-blog-on-your-home-computer&quot; target=&quot;_blank&quot;&gt; an excellent introduction to setting up a blog on your home computer here&lt;/a&gt; and a &lt;a href=&quot;http://lifehacker.com/5365600/the-beginners-guide-to-tricking-out-your-wordpress-blog&quot; target=&quot;_blank&quot;&gt;guide to using WordPress for your website here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For now, my site is sporting this lovely brown colour because my theme of choice doesn’t want to run on the production site right now. I’ll look into this soon and the layout will switch to a much more pleasant blue theme.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>I&#8217;d be loopy if I were a Stata command</title>
+   <link href="http://www.andrewdyck.com//id-be-loopy-if-i-were-a-stata-command/"/>
+   <updated>2009-09-18T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/id-be-loopy-if-i-were-a-stata-command</id>
+   <content type="html">&lt;p&gt;I just saw the most interesting Facebook quiz I’ve ever come across today. The quiz is titled “Which Stata command are you?” and after answering five questions provides an answer. Turns out I’d be the ‘foreach’ command, which is used in programming to create loops. Here is the summary of my results:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You are the type of person who is always trying to avoid unnecessary dirty work especially if there is a suitable shortcut. Your first question is always: How can I run this quicker? But be carefull: sometimes it is inevitable to take the long road and walk it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Coincidentally, I actually use the foreach command quite a lot in my work. It really does help simplify analysis. In the future I should write a quick example of how this is used in Stata programming.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>It Would&#8217;ve Been Worse Without Me</title>
+   <link href="http://www.andrewdyck.com//it-wouldve-been-worse-without-me/"/>
+   <updated>2009-08-20T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/it-wouldve-been-worse-without-me</id>
+   <content type="html">&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;img class=&quot;size-full wp-image-5 aligncenter&quot; title=&quot;Happiness Graph&quot; src=&quot;http://www.andrewdyck.com/cms/wp-content/uploads/2009/08/your_happiness.png&quot; alt=&quot;Graph of your happiness&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Just wanted to share an &lt;a href=&quot;http://gregmankiw.blogspot.com/2009/08/barney-frank-on-economics-profession.html&quot;&gt;interesting comment I saw on Greg Mankiw’s blog today&lt;/a&gt; which is attributed to &lt;a href=&quot;http://en.wikipedia.org/wiki/Barney_Frank&quot;&gt;United States Congressman Barney Frank&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Not for the first time, as an elected official, I envy economists. Economists have available to them, in an analytical approach, the counterfactual. Economists can explain that a given decision was the best one that could be made, because they can show what would have happened in the counterfactual situation. They can contrast what happened to what would have happened. No one has ever gotten reelected where the bumper sticker said, “It would have been worse without me.” You probably can get tenure with that. But you can’t win office.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I have a feeling that this rationale has brought about the beginning, and end, of many very interesting relationships. &lt;img src=&quot;http://wp.andrewdyck.com/cms/wp-includes/images/smilies/icon_smile.gif&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; /&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Economic Research with Yahoo! Pipes</title>
+   <link href="http://www.andrewdyck.com//economic-research-with-yahoo-pipes/"/>
+   <updated>2009-07-06T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/economic-research-with-yahoo-pipes</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;http://beyondtheonewayweb.files.wordpress.com/2008/04/yahoo-pipes-edit-by-robin-good-4651.jpg&quot; alt=&quot;pipes&quot; width=&quot;50%&quot; height=&quot;50%&quot; align=&quot;left&quot; /&gt;One of the projects that I’ve had the pleasure of working on in the past year has been researching government support of the fishing industry around the world. While government may be well-meaning in supporting fishermen when times get tough, subsidizing this industry not only has important implications for free-trade but can augment the incentive to over-fish ocean resources.&lt;/p&gt;
+
+&lt;p&gt;The project that I’ve been working on as part of the Global Ocean Economics Project aims to increase the availability and transparency of government subsidization of the fishing industry around the globe. At times, this data is already publicly available and it is a simple matter to incorporate this into our project. In other cases, since subsidies are a hot topic in international trade negotiation, data is not reported or available publicly available.&lt;/p&gt;
+
+&lt;p&gt;To find subsidy information when it’s not officially reported we utilize news stories from around the globe. Sorting through the world news every day would be a really big job if it weren’t for great tools like &lt;a href=&quot;http://pipes.yahoo.com/pipes/&quot;&gt;Yahoo! Pipes&lt;/a&gt;. With the pipe I created with Yahoo! I get notified automatically via Google Reader, my RSS feed reader, whenever a story anywhere in world is published involving fisheries subsidies.&lt;/p&gt;
+
+&lt;p&gt;Pipes are a very powerful tool for customizing and creating RSS feeds. I’m certain that &lt;a href=&quot;http://pipes.yahoo.com/andrewjdyck/fisheriessubsidiesnews&quot;&gt;the Pipe I’ve created to track fisheries subsidies news stories&lt;/a&gt; only scrapes the surface of what Yahoo! Pipes can do. So, take a moment to check out Pipes, &lt;a href=&quot;http://video.yahoo.com/watch/5260536/13878389&quot;&gt;watch some of their instructional videos&lt;/a&gt; and discover what uses you can find for them.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Using Dropbox to Sync Your Files Across Computers</title>
+   <link href="http://www.andrewdyck.com//using-dropbox-to-sync-your-files-across-computers/"/>
+   <updated>2009-06-16T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/using-dropbox-to-sync-your-files-across-computers</id>
+   <content type="html">&lt;p&gt;Whether it’s for work, school, or personal use, many people use multiple computers to get things done these days. So if you are using many different computers why have your files on just one of those computers, continually transferring copies of them around with portable USB drives? This eventually ends up in time wasted determining which is the most recent version of your TPS report, the one on your desktop, laptop, or USB drive.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.getdropbox.com&quot;&gt;&lt;img src=&quot;https://www.getdropbox.com/static/images/dropbox_logo_home.png&quot; alt=&quot;Get Dropbox&quot; align=&quot;left&quot; /&gt;&lt;/a&gt;To deal with this problem I’ve been using Dropbox for the past year or so. There are other competitors to Dropbox including Box.net among others, but I’ve only used just the one so that’s all I can vouch for. Once setup, the program automatically syncs my work files with my laptop and vice-versa so I never have to worry about forgetting them at the office or getting them mixed up with other copies….now which one is the most recent version of that term paper again?&lt;/p&gt;
+
+&lt;p&gt;Setting up Dropbox is easy and I can outline it in a few steps.&lt;br /&gt;
+1. Download and install the program from &lt;a href=&quot;https://www.getdropbox.com/&quot; target=&quot;_blank&quot;&gt;http://www.getdropbox.com&lt;/a&gt;*&lt;br /&gt;
+2. After the install you’ll be asked where to place your dropbox folder. It’s probably best to put this in a location that’s easy to access. In my case, as a windows user, my dropbox is in the My Documents folder.&lt;br /&gt;
+3. You’ll now be asked to sign up for a Dropbox account if you don’t have one. Doing so is painless.&lt;br /&gt;
+4. Only files that are inside your Dropbox folder will be synced so cut-and-paste whichever files you’d like to sync into the dropbox location on your computer. If you are just testing it out maybe you’d like to try putting a blank text document into the dropbox to see how it works.&lt;br /&gt;
+5. All set, now you can repeat these steps on computers that you want files synced with and everytime you make changes to your TPS report at home they’ll show up at work the next morning.&lt;/p&gt;
+
+&lt;p&gt;Lastly, when on a computer that you don’t use on a regular basis you can access your dropbox files from the web by logging into &lt;a href=&quot;http://www.getdropbox.com/&quot;&gt;http://www.getdropbox.com&lt;/a&gt;. Of course this may make some people squirmy about confidentiality of their data so use your judgement when placing files into your dropbox.&lt;/p&gt;
+
+&lt;p&gt;The free version of dropbox includes 2GB of synced storage, which is plenty good for my uses. You can increase your storage space up to 100GB but it’ll cost you.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you are interested in trying out Dropbox you can also &lt;a href=&quot;https://www.dropbox.com/referrals/NTMwODQ0OTk&quot; target=&quot;_blank&quot;&gt;visit this link&lt;/a&gt;, which does the same as above but earns me an extra 250mb of storage space. You can’t blame me for putting it out there can you?&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Cute Things Falling Asleep</title>
+   <link href="http://www.andrewdyck.com//cute-things-falling-asleep/"/>
+   <updated>2009-01-09T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/cute-things-falling-asleep</id>
+   <content type="html">&lt;p&gt;I saw a blog featured on the news this morning called &lt;a href=&quot;http://www.cutethingsfallingasleep.org/&quot; target=&quot;_blank&quot;&gt;Cute Things Falling Asleep.&lt;/a&gt; The site collects video of exactly what the title suggests….cute things falling asleep…..and rates them according to cuteness and sleepiness.  Here are two of the cutest/sleepiest.  Enjoy!&lt;/p&gt;
+
+&lt;p&gt;Puppy&lt;/p&gt;
+
+&lt;p&gt;Kitten&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>To be or not to be obese</title>
+   <link href="http://www.andrewdyck.com//to-be-or-not-to-beobese/"/>
+   <updated>2008-06-26T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/to-be-or-not-to-beobese</id>
+   <content type="html">&lt;p&gt;When I was on the plane to Regina I saw an interesting news clip on tv about a new report put out by &lt;a href=&quot;http://www.fraserinstitute.org/newsandevents/commentaries/5642.aspx&quot; target=&quot;_blank&quot;&gt;the Fraser Institute&lt;/a&gt;. From the article’s abstract:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“A recent study suggests that while obesity is costly on an annual basis, it is actually less costly than a healthier lifestyle over a lifetime.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I’ll save my personal comments except to say that the article is certainly interesting.&lt;/p&gt;
+
+&lt;p&gt;==========&lt;/p&gt;
+
+&lt;p&gt;I’ll hopefully have some decent pics from my trip to the lake posted when I get back on monday.&lt;/p&gt;
+
+&lt;p&gt;==========&lt;/p&gt;
+
+&lt;p&gt;R.I.P.  CFL pool.  I guess this isn’t going to happen.  I am sad.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Edited on March 04, 2010 to add the quote.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Art or Bird Droppings?</title>
+   <link href="http://www.andrewdyck.com//art-or-bird-droppings/"/>
+   <updated>2007-06-12T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/art-or-bird-droppings</id>
+   <content type="html">&lt;p&gt;I have often asked myself the same question so I was glad to see that someone has finally found a way to compare the two. The link below takes you to a page with a bunch of quizes about art, music, literature, etc. I scored 75% on the true art/fake quiz and 50% on the art/ape quiz. Apparently I know my bird droppings though because I scored 100% on the quiz which asks you if the picture is of a famous Pollack painting or bird droppings.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://reverent.org/quizzes.html&quot;&gt;Reverent Quizes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ENJOY!!&lt;/p&gt;
+
+&lt;p&gt;Oh, and let me know how well you did.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>What You Know About Math</title>
+   <link href="http://www.andrewdyck.com//what-you-know-about-math/"/>
+   <updated>2007-05-24T00:00:00-06:00</updated>
+   <id>http://www.andrewdyck.com/what-you-know-about-math</id>
+   <content type="html">&lt;div&gt;
+  Yea, Yea! Math nerds keepin&amp;#8217; it realz. Enjoy. 
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+
+</feed>

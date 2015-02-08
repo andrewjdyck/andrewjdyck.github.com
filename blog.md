@@ -11,14 +11,13 @@ title: Blog
                     <div class="clearfix"></div>
                     <h2 class="section-heading">{{ page.title }}</h2>
 
-{% for post in site.posts: 0 limit: 5 %}
-<h4><strong><a href="{{ post.url }}">{{ post.title }}</a></strong></h4>
-<p>
-  {{ post.summary }}
-</p>
-
+{% for post in site.posts: %}
 {{ post.date | date: "%B %e, %Y" }}
-<a href="{{ post.url }}">Read more</a>
+<h4><strong><a href="{{ post.url }}">{{ post.title }}</a></strong></h4> 
+<!--<p>
+  {{ post.summary }}
+</p>-->
+<!--<a href="{{ post.url }}">Read more</a>-->
 
 {% endfor %}
 
