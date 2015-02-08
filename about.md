@@ -1,0 +1,26 @@
+---
+layout: null
+---
+
+    <!-- Page Content -->
+	<section id="about">
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">About</h2>
+                    <p class="lead">I am an individual motivated by data-driven decision making, especially when applied to environmental issues. 
+                     I have worked as a Fisheries Economist, Credit Risk Analyst, and founded two non-profit organizations, <a href='http://www.openfisheries.org'>OpenFisheries.org</a> and <a href='http://www.opendatask.ca'>Open Data Saskatchewan</a>. These two organizations are focused on improving the data availability, accessibility, and promotion of the message of transparency.
+                    <br><br>In my spare time I enjoy making music, boxing, and tending to the garden that my wife, <a href='http://jrstonge.com'>Jen</a>, and I plant each year.
+                    </p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/AndrewDyck.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+

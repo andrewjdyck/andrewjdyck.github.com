@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Andrew J Dyck - Data Scientist</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{ A/D }</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#publications">Publications</a>
+                    </li>
+                    <!--<li>
+                        <a href="http://blog.andrewdyck.com">Blog</a>
+                    </li>-->
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<article class="post">
+
+  <h1>First shot at grabbing data from web APIs using Stata</h1>
+
+  <div class="entry">
+    <p>I love the new World Bank data site. The site makes finding and downloading data from the World Development Indicators very easy. But, I dream of searching the World Bank databases and downloading datasets directly into Stata all without leaving my Stata terminal. </p>
+
+<p>The World Bank offers an API for it’s data that has already been<a href="http://cran.r-project.org/web/packages/WDI/index.html"> incorporated into a package for R</a>. The package uses the API to download XML data and parses it into a dataframe. This can be done in R because there is <a href="http://cran.r-project.org/web/packages/XML/index.html">a nice XML package for R</a> to do the heavy lifting but no such package yet exists for Stata. The API can also serve up data as a JSON object, but that cannot be easily imported into Stata either.</p>
+
+<p>So, how to get an XML or JSON object into Stata? First off, I think that parsing JSON is the way to go since although the World Bank supports both XML and JSON, some other APIs only return JSON and wouldn’t it be great if Stata could access many web data APIs? If you think XML would be a better/easier route to go, please let me know in the comments.</p>
+
+<p><strong>What’s a JSON object?</strong><br />
+<a href="http://en.wikipedia.org/wiki/JSON">JSON</a>, which stands for JavaScript Object Notation, is an often used data format on the web. It is appears as a string. For example:</p>
+
+<pre class="brush: jscript; title: ; notranslate" title="">"[{"firstName":"John","lastName":"Smith","age":25,"address":{"streetAddress":"21 2nd Street","city":"New York","state":"NY","postalCode":"10021"},"phoneNumber":[{"type":"home","number":"212 555-1234"},{"type":"fax","number":"646 555-4567"}]}]"
+</pre>
+
+<p>So compact! It saves on download size (and processing time for larger datasets) but looks a little messy so most JSON parsers will also express a JSON string in “pretty” notation which looks like:</p>
+
+<pre class="brush: jscript; title: ; notranslate" title="">[
+ {
+     "firstName": "John",
+     "lastName": "Smith",
+     "age": 25,
+     "address":
+     {
+         "streetAddress": "21 2nd Street",
+         "city": "New York",
+         "state": "NY",
+         "postalCode": "10021"
+     },
+     "phoneNumber":
+     [
+         {
+           "type": "home",
+           "number": "212 555-1234"
+         },
+         {
+           "type": "fax",
+           "number": "646 555-4567"
+         }
+     ]
+ }
+]
+</pre>
+
+<p>Here you can see that a JSON object can be multi-dimensional. Stata requires data to be square so before we can get a nice tidy “json.dta” file there will need to be some parsing of the json string.</p>
+
+<p><strong>Reading data from an API in Stata</strong><br />
+Stata is a great program for data analysis but turns out it’s not the greatest web browser. It does not handle redirects well, I’d guess for security, so my plans for making a Stata Twitter client (with <a href="http://www.failuretorefrain.com/jeff/">Jeffrey Horn</a>) will probably be on hold until we can figure out a way to get around this limitation or something new is introduced in a Stata update. </p>
+
+<p><em>If you want to see the problem with Twitter redirects, try using the url “http://search.twitter.com/search.json?q=@Stata” with the Mata program I include later in the post.</em></p>
+
+<p><strong>Parsing pretty(ish) JSON with Stata</strong><br />
+So far I have two methods in mind for reading JSON data. The first uses Mata commands to read the string into Mata’s memory and the other uses the command -intext- which will read the string directly into Stata. I’m partial to the first method because it involves reading JSON data into an associative array that can be munged for use on many other websites. <del>The downside is that, as far as I can tell, associative arrays were introduced in Stata 11.1 so users who haven’t upgraded to the latest version wouldn’t be able to use it.</del></p>
+
+<p>That said, I’m a long way off from getting JSON data into a .dta file so I’m very open to ideas and help. So far, I have written a quick mata program that will read json data from a url and display the (not quite pretty) formatted data in the terminal. The rudimentary code is:</p>
+
+<pre class="brush: perl; title: ; notranslate" title="">mata
+void pretty_json(string scalar url)
+{	
+	b = fget( fopen( url, "r" ) )
+	b = subinstr( b, `"{"',`"{\n"')
+	b = subinstr( b, `"["', `"[\n"')
+	b = subinstr( b, `",""', `",\n""')
+	b = subinstr( b, `",["', `",\n["')
+	b = subinstr( b, `""}"', `""\n}"')
+	b = subinstr( b, `",{"', `",\n{"')
+	b = subinstr( b, `":{"', `": {"')
+	b = subinstr( b, `"},"', `"\n},\n"')
+	printf(b)
+}
+</pre>
+
+<p>Then test it out on World Bank data for Brazil’s GNP between 1960:1970:</p>
+
+<pre class="brush: perl; title: ; notranslate" title="">url = "http://api.worldbank.org/countries/br/indicators/NY.GNP.PCAP.CD?date=1960:1970&amp;format=json"
+pretty_json(url)
+</pre>
+
+<p>You should see the data string is now in lines instead of a character string in your terminal. This could be written to a text document, imported to Stata using -intext- and cleaned with some regex skills. Probably the fastest way to get web api data into Stata the main drawback is that it doesn’t allow for much interaction with the API and one would need to know the url first. The World Bank API has search functionality and I’d love for a Stata World Bank data module to allow the user to search the database, choose a series to download and then import that data.</p>
+
+<p>Any comments from fellow Stata users out there would be greatly appreciated. My progress on this topic is in a <a href="https://github.com/andrewjdyck/statajson">git repository on github</a> if you want to watch or branch it.</p>
+
+<p><strong>Update:</strong> <em><a href="http://twitter.com/#!/Stata">@Stata</a> on Twitter sent my a direct message informing me that associative arrays were actually introduced during Stata 10’s lifetime so it’s only pre-Stata 10 users that wouldn’t be able to use ado files that involve associate arrays.</em></p>
+
+
+  </div>
+
+  <div class="date">
+    Written on January 18, 2011
+  </div>
+
+  <div class="comments">
+    # <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'andrewdyck'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+  </div>
+</article>
+
+
+
+ <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#publications">Publications</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Andrew J Dyck 2014. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- Google Analytics tracking -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2084094-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
