@@ -9,6 +9,8 @@ author:
 baseurl: /
 
 # Other stuff
+gems:
+  - jekyll-sitemap
 highlighter: pygments
 pages_list:
   Blog: '/blog'
