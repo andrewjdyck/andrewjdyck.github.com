@@ -12,6 +12,7 @@ baseurl: /
 gems:
   - jekyll-sitemap
 highlighter: pygments
+markdown: kramdown
 pages_list:
   Blog: '/blog'
   Archive: '/archive'
