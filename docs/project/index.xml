@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Andrew J. Dyck</title>
+    <link>./project/</link>
+    <description>Recent content in Projects on Andrew J. Dyck</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="./project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Publications</title>
+      <link>./project/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>./project/publications/</guid>
+      <description>As of the end of 2014 (the last time I published), I have published nine peer-reviewed and other publications that have been cited one or more times according to Google Scholar. Through publications spanning Economics and Environmental Sciences, these publications have been cited throughout the fisheries and economics domains. As of February 2018, my works were cited nearly 600 times for an h-index measure of 9.
+More about my publication history can be found via Google Scholar, IDEAS or Mendeley.</description>
+    </item>
+    
+    <item>
+      <title>Canadian Football Stats for R</title>
+      <link>./project/canadianfootballr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>./project/canadianfootballr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Data Saskatchewan</title>
+      <link>./project/opendatask/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>./project/opendatask/</guid>
+      <description>Since 2011, I&amp;rsquo;ve been organizing hackathons and collecting open data sources for the province of Saskatchewan, Canada. I cannot take credit for for it, but since the project began there have been 2 open data portals spring up in Saskatchewan (Regina &amp;amp; Saskatoon).
+I continue to pull together whatever scattered open data sources may exist into the project website, http://www.opendatask.ca/.</description>
+    </item>
+    
+  </channel>
+</rss>
