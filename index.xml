@@ -6,7 +6,7 @@
     <description>Recent content on Andrew J. Dyck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="./index.xml" rel="self" type="application/rss+xml" />
     
@@ -41,6 +41,16 @@ I continue to pull together whatever scattered open data sources may exist into 
     </item>
     
     <item>
+      <title>About Me</title>
+      <link>./about/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>./about/</guid>
+      <description>I am an individual motivated by data-driven decision making, especially when applied to environmental issues. I have worked as a Fisheries Economist, Credit Risk Analyst, and founded two non-profit organizations, OpenFisheries.org and Open Data Saskatchewan. These two organizations are focused on improving the data availability, accessibility, and promotion of the message of transparency.
+My wife Jen and I have a daughter and two cats. We enjoy travel and spending time outdoors as much as possible.</description>
+    </item>
+    
+    <item>
       <title>Compute the product of a column of data using SQL</title>
       <link>./post/compute-the-product-of-a-column-of-data-using-sql/</link>
       <pubDate>Sun, 12 Jan 2014 00:00:00 +0000</pubDate>
@@ -52,16 +62,6 @@ $$SUMOFX = \sum_{i=1}^n X_i$$
 Now, if we find ourselves in the unfortunate situation to compute this:
 $$PRODUCTOFX = \prod_{i=1}^n X_i$$
 In this case, it won&amp;#8217;t be as easy to use the SQL code above, but we can use Euler&amp;#8217;s number and a property of the natural logarithm to also make this task a trivial one.</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>./about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>./about/</guid>
-      <description>I am an individual motivated by data-driven decision making, especially when applied to environmental issues. I have worked as a Fisheries Economist, Credit Risk Analyst, and founded two non-profit organizations, OpenFisheries.org and Open Data Saskatchewan. These two organizations are focused on improving the data availability, accessibility, and promotion of the message of transparency.
-My wife Jen and I have a daughter and two cats. We enjoy travel and spending time outdoors as much as possible.</description>
     </item>
     
   </channel>
