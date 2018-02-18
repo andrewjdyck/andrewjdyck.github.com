@@ -3,72 +3,72 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>./project/publications/</loc>
+    <loc>/project/publications/</loc>
   </url>
   
   <url>
-    <loc>./project/canadianfootballr/</loc>
+    <loc>/project/canadianfootballr/</loc>
   </url>
   
   <url>
-    <loc>./project/opendatask/</loc>
+    <loc>/project/opendatask/</loc>
   </url>
   
   <url>
-    <loc>./about/</loc>
+    <loc>/about/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>./post/compute-the-product-of-a-column-of-data-using-sql/</loc>
+    <loc>/post/compute-the-product-of-a-column-of-data-using-sql/</loc>
     <lastmod>2014-01-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>./</loc>
+    <loc>/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>./categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>./tags/opendata/</loc>
+    <loc>/tags/opendata/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>./post/</loc>
+    <loc>/post/</loc>
     <lastmod>2014-01-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>./project/</loc>
+    <loc>/project/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>./tags/r/</loc>
+    <loc>/tags/r/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>./tags/sql/</loc>
+    <loc>/tags/sql/</loc>
     <lastmod>2014-01-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>./tags/statistics/</loc>
+    <loc>/tags/statistics/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>./tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2014-01-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

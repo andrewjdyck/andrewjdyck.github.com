@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Andrew J. Dyck</title>
-    <link>./post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Andrew J. Dyck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Jan 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="./post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Compute the product of a column of data using SQL</title>
-      <link>./post/compute-the-product-of-a-column-of-data-using-sql/</link>
+      <link>/post/compute-the-product-of-a-column-of-data-using-sql/</link>
       <pubDate>Sun, 12 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>./post/compute-the-product-of-a-column-of-data-using-sql/</guid>
+      <guid>/post/compute-the-product-of-a-column-of-data-using-sql/</guid>
       <description>In SQL, summing a column of numbers is relatively trivial, and the size of the dataset isn&amp;#8217;t important. For example:
 SELECT SUM(X) as SUMOFX FROM data_table;  Mathematically, what we are doing here is:
 $$SUMOFX = \sum_{i=1}^n X_i$$
