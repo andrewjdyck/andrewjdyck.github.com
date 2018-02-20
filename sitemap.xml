@@ -15,13 +15,27 @@
   </url>
   
   <url>
+    <loc>/project/sask-bike-collisions/</loc>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/compute-the-product-of-a-column-of-data-using-sql/</loc>
+    <loc>/post/2014-01-12-compute-the-product-of-a-column-of-data-using-sql/</loc>
     <lastmod>2014-01-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2010-11-03-short-script-to-backup-mysql-database-from-python/</loc>
+    <lastmod>2010-11-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2010-10-01-generate-monte-carlo-simulated-data-for-simultaneous-equations/</loc>
+    <lastmod>2010-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -31,7 +45,39 @@
   </url>
   
   <url>
+    <loc>/tags/bicycle/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/cfl/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/d3.js/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/football/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/monte-carlo/</loc>
+    <lastmod>2010-10-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/mysql/</loc>
+    <lastmod>2010-11-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -52,6 +98,12 @@
   </url>
   
   <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2010-11-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/r/</loc>
     <priority>0</priority>
   </url>
@@ -63,13 +115,20 @@
   </url>
   
   <url>
+    <loc>/tags/stata/</loc>
+    <lastmod>2010-10-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/statistics/</loc>
+    <lastmod>2010-10-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2014-01-12T00:00:00+00:00</lastmod>
+    <lastmod>2010-10-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

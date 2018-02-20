@@ -6,10 +6,64 @@
     <description>Recent content in Tags on Andrew J. Dyck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Oct 2010 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bicycle</title>
+      <link>/tags/bicycle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bicycle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cfl</title>
+      <link>/tags/cfl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/cfl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>D3.js</title>
+      <link>/tags/d3.js/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/d3.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Football</title>
+      <link>/tags/football/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/football/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monte Carlo</title>
+      <link>/tags/monte-carlo/</link>
+      <pubDate>Fri, 01 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/monte-carlo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>/tags/mysql/</link>
+      <pubDate>Wed, 03 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mysql/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Opendata</title>
@@ -17,6 +71,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/opendata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Wed, 03 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
       <description></description>
     </item>
     
@@ -39,9 +102,18 @@
     </item>
     
     <item>
+      <title>Stata</title>
+      <link>/tags/stata/</link>
+      <pubDate>Fri, 01 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/stata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Statistics</title>
       <link>/tags/statistics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 01 Oct 2010 00:00:00 +0000</pubDate>
       
       <guid>/tags/statistics/</guid>
       <description></description>
