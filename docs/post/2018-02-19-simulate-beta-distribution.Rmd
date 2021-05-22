@@ -1,0 +1,74 @@
+---
+title: "The beta distribution and LGD modeling - Part 1"
+date: 2018-02-19
+tags: ["R", "statistics"]
+draft: true
+---
+
+```{r, warning=FALSE}
+# library(dplyr)
+library(ggplot2)
+library(reshape2)
+```
+
+# Exploration of using the beta distribution for LGD modeling
+
+The beta distribution is widely used for Loss Given Default (LGD) distributions because it is bounded by [0,1] and can be fully described by its mean and standard deviation. In this post I explore some preliminary work in using the beta distribution for simulating LGD using R.
+
+# Getting the math out of the way.
+
+I'm not going to go deep on this. Check out wikipedia for details on the beta distribution if you'd like. For now, all we need to know is that the beta distribution has two shape parameters, so we reference it as $Beta(\alpha, \beta)$. The mean and variance of the beta distribution is:
+
+$\mu = \frac{\alpha}{(\alpha + \beta)}$
+
+$\sigma^2 = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$
+
+Great, but if we're going to do any simulation or analysis, we're going to have to re-arrange this a bit:
+
+$\alpha = \mu^2 \bigg(\frac{1 - \mu}{\sigma^2} - \frac{1}{\mu}\bigg)$
+
+$\beta = \alpha \bigg(\frac{1}{\mu} - 1\bigg)$
+
+```{r}
+est_alpha <- function(mu, var) {
+  alpha <- (mu^2)*(((1-mu)/var) - (1/mu))
+  return(alpha)
+}
+
+est_beta <- function(mu, var) {
+  alpha <- (mu^2)*(((1-mu)/var) - (1/mu))
+  beta <- alpha * ((1/mu) - 1)
+  return(beta)
+}
+```
+
+```{r}
+inputs <- data.frame(
+  id = c('one', 'two', 'three', 'four'),
+  mean = c(0.2, 0.9, .75, .5),
+  var = c(.02, .03, .001, .15),
+  stringsAsFactors = FALSE
+)
+
+gen_data <- function(n, df) {
+  tt <- sapply(df$id, function(x) {
+    mu <- df[which(df$id == x), 'mean']
+    var <- df[which(df$id == x), 'var']
+    rbeta(n, est_alpha(mu, var), est_beta(mu, var))
+  }, simplify = FALSE, USE.NAMES = TRUE)
+  out_data <- do.call(cbind.data.frame, tt)
+  return(out_data)
+}
+
+simdata <- gen_data(1000, inputs)
+```
+
+```{r, warning=FALSE, message=FALSE}
+plot_data <- melt(simdata)
+
+ggplot(plot_data, aes(value, fill=variable, color=variable)) + 
+  geom_density(alpha=0.1)
+
+```
+
+

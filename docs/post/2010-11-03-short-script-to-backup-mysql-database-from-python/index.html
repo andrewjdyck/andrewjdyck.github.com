@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Short script to backup MySQL database from Python</title>
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: red;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sql.min.js"></script>  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script> 
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.31.1" />
+        
+        
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2084094-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)};
+          gtag('js', new Date());
+
+          gtag('config', 'UA-2084094-1');
+        </script>
+        
+    </head>
+
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#">Short script to backup MySQL database from Python</a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Blog</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/about">About Me</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/andrewjdyck/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/andrewjdyck/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/andrewjdyck/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2010-11-03-short-script-to-backup-mysql-database-from-python/">Short script to backup MySQL database from Python</a></h4>
+    <h5>November 3, 2010</h5>
+    
+    <a href="/tags/sql">
+        <kbd class="item-tag">SQL</kbd>
+    </a>
+    
+    <a href="/tags/mysql">
+        <kbd class="item-tag">MySQL</kbd>
+    </a>
+    
+    <a href="/tags/python">
+        <kbd class="item-tag">Python</kbd>
+    </a>
+    
+
+</div>
+
+
+    <br> <div class="text-justify"><p>Although <a href="http://www.mysql.com/">MySQL</a> is normally thought of as the relational database management system that many websites are built on, I&#8217;ve found it to be pretty useful for many non-web tasks. Some advantages to using MySQL is that it&#8217;s cross platform so I can use it on my Linux and Windows computers and the availability of the gui tool <a href="http://www.phpmyadmin.net/">phpMyAdmin</a> which is also cross-platform.</p>
+
+<p>If you use phpMyAdmin, or you&#8217;re a linux geek, you know that backing up your MySQL database to a .sql file is easy. There is a point-and-click interface for phpMyAdmin and you can use mysqldump in a terminal on linux. Turns out this also works on windows with a small tweak and can be called from a Python script as well if you are using that language for development&#8230;.and if you&#8217;re not you should really consider it.</p>
+
+<p><strong>Steps to backup a MySQL database running on windows from Python</strong></p>
+
+<ol>
+<li><p>My default install of WAMP2 for Windows 7 didn&#8217;t set an environment variable for the MySQL folder so I added it by adding the text &#8220;;C:\wamp\bin\mysql\MySQL 5.1.36\bin&#8221; without quotes to the windows PATH by right clicking &#8220;My Computer&#8221; &gt; Properties &gt; Advanced settings &gt; Environment variables.</p></li>
+
+<li><p>Now you should be able to run mysql from the command line from any folder. Try it by opening a command window (win + r &gt; cmd &gt; OK) and typing: &#8220;mysql -u username&#8221;. Pretty cool.</p></li>
+
+<li><p>Now you&#8217;re set to run MySQL commands from Python (or PHP, etc. as well I imagine). The following few lines of code will backup an entire database to a temporary directory in your root directory. Good luck!</p></li>
+</ol>
+
+<pre class="brush: python; title: ; notranslate" title="">import os
+target_dir = 'C:\\TEMP\\'
+os.system("mysqldump --add-drop-table -c -u username -ppassword database &gt; "+target_dir+"database.bak.sql")
+</pre>
+</div>
+
+    
+    
+
+    
+
+        <h4 class="page-header">Related</h4>
+
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2014-01-12-compute-the-product-of-a-column-of-data-using-sql/">Compute the product of a column of data using SQL</a></h4>
+    <h5>January 12, 2014</h5>
+    
+    <a href="/tags/sql">
+        <kbd class="item-tag">SQL</kbd>
+    </a>
+    
+
+</div>
+ 
+
+    
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+
