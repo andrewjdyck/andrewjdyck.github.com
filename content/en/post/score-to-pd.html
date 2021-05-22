@@ -1,0 +1,51 @@
+---
+title: "Score to PD"
+date: 2018-02-19
+tags: ["R", "statistics"]
+draft: true
+---
+
+
+
+<p><code>##    ## Attaching package: 'dplyr'</code></p>
+<p><code>## The following objects are masked from 'package:stats':   ##    ##     filter, lag</code></p>
+<p><code>## The following objects are masked from 'package:base':   ##    ##     intersect, setdiff, setequal, union</code></p>
+<p>ratios &lt;- data.frame( abbrev = c(‘cr’, ‘dscr’, ‘de’, ‘nw’), name = c(‘Current Ratio’, ‘Debt Service Coverage Ratio’, ‘Debt Exposure’, ‘Net Worth’), abbrev_d = c(‘cr_d’, ‘dscr_d’, ‘de_d’, ‘nw_d’), stringsAsFactors = FALSE )</p>
+<div id="section" class="section level1">
+<h1></h1>
+</div>
+<div id="section-1" class="section level1">
+<h1></h1>
+</div>
+<div id="documenting-how-to-convert-a-score-to-pd-and-vice-versa" class="section level1">
+<h1>Documenting how to convert a score to pd and vice-versa</h1>
+</div>
+<div id="httpswww.analyticbridge.datasciencecentral.comforumtopicswhat-is-the-best-way-to" class="section level1">
+<h1><a href="https://www.analyticbridge.datasciencecentral.com/forum/topics/what-is-the-best-way-to\" class="uri">https://www.analyticbridge.datasciencecentral.com/forum/topics/what-is-the-best-way-to\</a></h1>
+</div>
+<div id="section-2" class="section level1">
+<h1></h1>
+</div>
+<div id="score-offset-factor-ln-odds-score-pdo-offset-factor-ln-2-odds" class="section level1">
+<h1>Score = Offset + Factor ∗ ln (odds) Score + pdo = Offset + Factor ∗ ln (2 ∗ odds)</h1>
+</div>
+<div id="pdo-factor-ln-2-therefore-factor-pdo-ln-2offset-score-factor-ln-odds" class="section level1">
+<h1>pdo = Factor ∗ ln (2), therefore Factor = pdo / ln (2);Offset = Score {Factor ∗ ln (Odds)}</h1>
+</div>
+<div id="section-3" class="section level1">
+<h1></h1>
+</div>
+<div id="for-example-if-a-scorecard-were-being-scaled-where-the-user-wanted-odds-of" class="section level1">
+<h1>For example, if a scorecard were being scaled where the user wanted odds of</h1>
+</div>
+<div id="at-600-points-and-wanted-the-odds-to-double-every-20-points-i.e.-pdo-20" class="section level1">
+<h1>50:1 at 600 points and wanted the odds to double every 20 points (i.e., pdo = 20),</h1>
+</div>
+<div id="the-factor-and-offset-would-be" class="section level1">
+<h1>the factor and offset would be:</h1>
+</div>
+<div id="factor-20-ln-2-28.8539-offset-600-28.8539-ln-50-487.123" class="section level1">
+<h1>Factor = 20 / ln (2) = 28.8539 Offset = 600 – {28.8539 ln (50)} = 487.123</h1>
+<p>odds_to_score &lt;- function(odds) { PtsToDblOdds &lt;- 30 Factor &lt;- PtsToDblOdds / log(2) Offset &lt;- 750 - (Factor<em>log(PtsToDblOdds)) Score = Offset + Factor</em>log(odds) return(Score) }</p>
+<p>odds_to_pd &lt;- function(odds) { pd &lt;- odds / (1 + odds) return(pd) }</p>
+</div>
