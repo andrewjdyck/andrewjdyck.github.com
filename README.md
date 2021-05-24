@@ -1,8 +1,6 @@
 # andrewjdyck.github.com
-My personal homepage. Bootstrap theme. Jekyll powered blog.
+
+My personal homepage. Powered by Blogdown.
 
 
-# Try a new theme: 
-
-https://github.com/EmielH/hallo-hugo
 
