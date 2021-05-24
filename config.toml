@@ -15,6 +15,12 @@ disableKinds = ["page", "section", "taxonomy", "taxonomyTerm"]
         icon = "envelope"
         title = "E-mail"
         url = "mailto:andrew@andrewdyck.com"
+        
+    [[params.links]]
+        iconset = "fas"
+        icon = "newspaper"
+        title = "Substack"
+        url = "https://substack.com/profile/10507236-andy-dyck"
 
     [[params.links]]
         icon = "github"
