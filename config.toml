@@ -4,6 +4,7 @@ defaultContentLanguage = "en"
 title = "Hallo"
 theme = "hallo-hugo"
 disableKinds = ["page", "section", "taxonomy", "taxonomyTerm"]
+googleAnalytics = "UA-2084094-1"
 
 [Author]
     name = "Andrew"
