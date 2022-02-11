@@ -1,0 +1,54 @@
+---
+title: "Simulate beta distribution"
+date: 2018-02-19
+tags: ["R", "statistics"]
+draft: true
+---
+
+
+
+<pre class="r"><code># library(dplyr)
+library(ggplot2)
+library(reshape2)</code></pre>
+<pre class="r"><code>est_alpha &lt;- function(mu, var) {
+  alpha &lt;- (mu^2)*(((1-mu)/var) - (1/mu))
+  return(alpha)
+}
+
+est_beta &lt;- function(mu, var) {
+  alpha &lt;- (mu^2)*(((1-mu)/var) - (1/mu))
+  beta &lt;- alpha * ((1/mu) - 1)
+  return(beta)
+}</code></pre>
+<pre class="r"><code>inputs &lt;- data.frame(
+  id = c(&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;),
+  mean = c(0.2, 0.9, .75, .5),
+  var = c(.02, .03, .001, .15),
+  stringsAsFactors = FALSE
+)
+
+gen_data &lt;- function(n, df) {
+  tt &lt;- sapply(df$id, function(x) {
+    mu &lt;- df[which(df$id == x), &#39;mean&#39;]
+    var &lt;- df[which(df$id == x), &#39;var&#39;]
+    rbeta(n, est_alpha(mu, var), est_beta(mu, var))
+  }, simplify = FALSE, USE.NAMES = TRUE)
+  out_data &lt;- do.call(cbind.data.frame, tt)
+  return(out_data)
+}
+
+simdata &lt;- gen_data(1000, inputs)
+
+head(simdata)</code></pre>
+<pre><code>##         one       two     three        four
+## 1 0.3306421 0.9469788 0.7793405 0.655186796
+## 2 0.3770138 0.9999926 0.7141481 0.042849355
+## 3 0.2248081 0.9999996 0.6905732 0.385879667
+## 4 0.2591234 0.9936193 0.7970692 0.948238540
+## 5 0.1154241 0.9961783 0.7897061 0.999997946
+## 6 0.1082939 0.9980852 0.7086497 0.008120783</code></pre>
+<pre class="r"><code>plot_data &lt;- melt(simdata)
+
+ggplot(plot_data, aes(value, fill=variable, color=variable)) + 
+  geom_density(alpha=0.1)</code></pre>
+<p><img src="/post/2018-02-19-simulate-beta-distribution_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>

@@ -1,0 +1,15 @@
+---
+title: "quantiles"
+date: 2018-02-19
+tags: ["R", "statistics"]
+draft: true
+---
+
+
+
+<p>qq &lt;- sapply(ratios$abbrev, function(x) { quantile(chess_sim[, x], seq(0, 1, .1)) }, simplify = FALSE, USE.NAMES = TRUE) chess_q &lt;- do.call(cbind.data.frame, qq)</p>
+<p>chess_d &lt;- chess_sim %&gt;% mutate_at(vars(ratios<span class="math inline">\(abbrev), funs(d = ntile(., 10))) %&gt;%  tbl_df() %&gt;%  select(-one_of(ratios\)</span>abbrev))</p>
+<p>checkers_d &lt;- checkers_sim %&gt;% mutate_at(vars(ratios<span class="math inline">\(abbrev), funs(d = ntile(., 10))) %&gt;%  tbl_df() %&gt;%  select(-one_of(ratios\)</span>abbrev))</p>
+<p>one &lt;- chess_d[which(chess_d$id == 1), ] %&gt;% select(-one_of(“id”)) %&gt;% melt(., variable.factor=FALSE) %&gt;% # gather(variable, value, everything()) %&gt;% # str() rename(abbrev_d=variable) one<span class="math inline">\(abbrev_d &lt;- as.character(one\)</span>abbrev_d)</p>
+<p>one &lt;- one %&gt;% inner_join(ratios) # <a href="https://stackoverflow.com/questions/7423116/how-to-change-the-melt-data-frame-function-in-reshape2-package-returned-variabl" class="uri">https://stackoverflow.com/questions/7423116/how-to-change-the-melt-data-frame-function-in-reshape2-package-returned-variabl</a></p>
+<p>ggplot(one, aes(name, value)) + geom_col() + scale_y_continuous(limits=c(0, 10), breaks = 1:10) + labs(y=‘Rating’, x=‘Financial ratio’) + coord_flip()</p>

@@ -5,6 +5,10 @@ newsletters/*.html
 jobs/config.json
 /src/ref/
 poc/tiingo/tiingo-token.json
+/_sites
+Gemfile.lock
+.Rproj.user
+.Rhistory
 
 # History files
 .Rhistory
@@ -42,3 +46,6 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+
+
+
