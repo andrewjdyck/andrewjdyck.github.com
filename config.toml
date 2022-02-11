@@ -1,13 +1,13 @@
 baseURL = "https://andrewdyck.com/"
 languageCode = "en"
 defaultContentLanguage = "en"
-title = "Hallo"
+title = "Andy Dyck's Homepage"
 theme = "hallo-hugo"
 disableKinds = ["page", "section", "taxonomy", "taxonomyTerm"]
 googleAnalytics = "UA-2084094-1"
 
 [Author]
-    name = "Andrew"
+    name = "Andy"
 
 [params]
 
@@ -21,7 +21,7 @@ googleAnalytics = "UA-2084094-1"
         iconset = "fas"
         icon = "newspaper"
         title = "Substack"
-        url = "https://substack.com/profile/10507236-andy-dyck"
+        url = "https://opendatask.substack.com/"
 
     [[params.links]]
         icon = "github"
