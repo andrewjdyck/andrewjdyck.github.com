@@ -1,0 +1,43 @@
+---
+title: "quantiles"
+date: 2018-02-19
+tags: ["R", "statistics"]
+draft: true
+---
+
+qq <- sapply(ratios$abbrev, function(x) {
+  quantile(chess_sim[, x], seq(0, 1, .1))
+}, simplify = FALSE, USE.NAMES = TRUE)
+chess_q <- do.call(cbind.data.frame, qq)
+
+chess_d <- chess_sim %>%
+  mutate_at(vars(ratios$abbrev), funs(d = ntile(., 10))) %>%
+  tbl_df() %>%
+  select(-one_of(ratios$abbrev))
+
+checkers_d <- checkers_sim %>%
+  mutate_at(vars(ratios$abbrev), funs(d = ntile(., 10))) %>%
+  tbl_df() %>%
+  select(-one_of(ratios$abbrev))
+
+
+
+one <- chess_d[which(chess_d$id == 1), ] %>%
+  select(-one_of("id")) %>%
+  melt(., variable.factor=FALSE) %>%
+  # gather(variable, value, everything()) %>%
+  # str()
+  rename(abbrev_d=variable)
+one$abbrev_d <- as.character(one$abbrev_d)
+
+one <- one %>%
+  inner_join(ratios)
+# https://stackoverflow.com/questions/7423116/how-to-change-the-melt-data-frame-function-in-reshape2-package-returned-variabl
+
+
+ggplot(one, aes(name, value)) + 
+  geom_col() +
+  scale_y_continuous(limits=c(0, 10), breaks = 1:10) + 
+  labs(y='Rating', x='Financial ratio') +
+  coord_flip()
+

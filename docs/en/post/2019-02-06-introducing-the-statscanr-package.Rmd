@@ -1,0 +1,65 @@
+---
+title: "Introducing the statscanr package for Statistics Canada data in R"
+date: 2019-02-06
+tags: ["R", "statistics", "package", "data", "api"]
+draft: true
+---
+
+# Motivation #
+
+For a long time, CANSIM was the best way to get data from Statistics Canada. Prior to 2012, the CANSIM database was only available via subscription services, but was available in some form after 2006 with some stipulations. After 2012, CANSIM data was available to the wider public with little in the way in terms of cumbersome data accessibility, availability, and reusability rules. 
+
+This opening of Canada's statisical data was a huge leap forward for statistical data transparency in Canada. Fast-forward to today and Statistics Canada has made another leap by offering a [REST API for web developers](https://www.statcan.gc.ca/eng/developers/wds). I'd encourage anyone with a technical interest to [read the documentation/user guide](https://www.statcan.gc.ca/eng/developers/wds/user-guide). as it's extensive and informative. However, there remains a large hurdle here to making Statistics Canada data "usable" for many analysts - professionals, hobbyists, or otherwise. The statscanr package for the R programming language is one step towards lowering the barriers for the Canadian public to investigate and use Canada's statistical data to a greater degree.
+
+
+# Why R? #
+Better writers than myself have answered this question, but for now I'll say that the R programming language, combined with RStudio is the easiest way for people who have a moderate interest in statistics and programming beyond what Microsoft Excel can deliver to get into things. The R programming language is also built by statisticians, for statisticians and can be well described as the language of statistics itself.
+
+There are other ways, of course, such as Tableau, Python, etc., however, I believe using statscanr with R to be a good first step in using Statistics Canada data for analytical purposes.
+
+# Installing statscanr #
+The following assumes that you have installed R and RStudio. I won't go into that here.
+
+Currently, this package is not on CRAN, so one must grab the development version from github. To install this version you'll need the `devtools` package first.
+
+
+```r
+# install.packages('devtools')
+devtools::install_github('andrewjdyck/statscanr')
+```
+
+# Usage #
+
+Statistics Canada table 14-10-0287-03 (formerly CANSIM  282-0087) is available online at https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1410028703. The code below is used to load the entire product cube into a data.frame in memory. Note that this may take some time to download (48MB zipped) and then unzip and load the extracted CSV into memory.
+
+
+```r
+library(statscanr)
+
+# Using the legacy CANSIM ID
+cansimId <- '2820087'
+productId <- read_cansim_product_mapping(cansimId = cansimId)
+
+# Read the product metadata
+metadata <- get_product_metadata(productId)
+
+# Read the product cube into R
+df <- download_product_cube(productId)
+
+# One can also load the latest 10 observations for a single coordinate in the product cube with the code below.
+# Coordinate ID 1.1.1.1.1.2.0.0.0.0 is for the following:
+# Canada, Population, Both sexes, 15 years and over, Estimate, Unadjusted, Persons
+
+coordinateId <- '1.1.1.1.1.2.0.0.0.0'
+can_pop <- get_coordinate_data(productId, coordinateId, 10)
+
+head(can_pop)
+
+```
+
+# Future development #
+
+I'm open to any feedback there might be on the package for improvement. Please comment on the github development page.
+
+Other than general bug fixes and tidying things up, the major area for improvement with the pacakge is to incorporate census data from Statistics Canada. There is [documentation available](https://www12.statcan.gc.ca/wds-sdw/index-eng.cfm) on the web services for the 2016 census. This will be incorporated in a future release.
+
