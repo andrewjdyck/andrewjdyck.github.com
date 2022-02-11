@@ -5,6 +5,7 @@ title = "Andy Dyck's Homepage"
 theme = "hallo-hugo"
 disableKinds = ["page", "section", "taxonomy", "taxonomyTerm"]
 googleAnalytics = "UA-2084094-1"
+publishDir = 'docs'
 
 [Author]
     name = "Andy"
